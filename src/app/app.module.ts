@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
 import { LoggerModule } from 'ngx-logger';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { LoggerModule } from 'ngx-logger';
     BrowserAnimationsModule,
     CoreModule,
     AppRoutingModule,
+      RouterModule,
     LoggerModule.forRoot({
       serverLoggingUrl: `api/logs`,
       level: NgxLoggerLevel.ERROR,
