@@ -17,33 +17,43 @@ export class ExamService {
     const questions: Question[] = [
       {
         id: 1,
-        text: "Question 1",
-        options: ["Option 1", "Option 2", "Option 3", "Option 4"],
-        answer: "Option 2",
+        text: "Which country hosted the 2020 Summer Olympics?",
+        options: ["Japan", "United States", "Brazil", "China"],
+        answer: "Japan",
       },
       {
         id: 2,
-        text: "Question 2",
-        options: ["Option 1", "Option 2", "Option 3", "Option 4"],
-        answer: "Option 3",
+        text: "Who is the author of the Harry Potter book series?",
+        options: [
+          "Stephen King",
+          "Dan Brown",
+          "J.K. Rowling",
+          "George R.R. Martin",
+        ],
+        answer: "J.K. Rowling",
       },
       {
         id: 3,
-        text: "Question 3",
-        options: ["Option 1", "Option 2", "Option 3", "Option 4"],
-        answer: "Option 1",
+        text: "What is the capital city of France?",
+        options: ["Paris", "Rome", "Berlin", "London"],
+        answer: "Paris",
       },
       {
         id: 4,
-        text: "Question 4",
-        options: ["Option 1", "Option 2", "Option 3", "Option 4"],
-        answer: "Option 4",
+        text: "Who painted the Mona Lisa?",
+        options: [
+          "Vincent van Gogh",
+          "Pablo Picasso",
+          "Michelangelo",
+          "Leonardo da Vinci",
+        ],
+        answer: "Leonardo da Vinci",
       },
       {
         id: 5,
-        text: "Question 5",
-        options: ["Option 1", "Option 2", "Option 3", "Option 4"],
-        answer: "Option 2",
+        text: "Which planet is known as the 'Red Planet'?",
+        options: ["Mars", "Venus", "Jupiter", "Mercury"],
+        answer: "Mars",
       },
     ];
 

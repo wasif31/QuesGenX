@@ -19,9 +19,8 @@ export class ResultComponent implements OnInit {
   ngOnInit() {
     // Retrieve the query parameters from the URL
     this.route.queryParams.subscribe((params) => {
-      const examType = params.examType;
-      const difficulty = params.difficulty;
-      const questionType = params.questionType;
+      this.score = params.score;
+      this.percentage = params.percentage;
 
       // this.examService
       //   .fetchQuestions(examType, difficulty, questionType)

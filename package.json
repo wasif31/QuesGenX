@@ -33,7 +33,7 @@
   },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve demo --configuration development",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
