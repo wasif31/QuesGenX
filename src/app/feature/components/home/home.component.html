@@ -1,0 +1,9 @@
+<h2>Select Language:</h2>
+<mat-form-field appearance="fill">
+    <mat-label>Language</mat-label>
+    <mat-select [(ngModel)]="selectedLanguage">
+        <mat-option *ngFor="let language of languages" [value]="language">{{ language }}</mat-option>
+    </mat-select>
+</mat-form-field>
+
+<button (click)="startExam()" color="primary" mat-raised-button>Start Exam</button>

@@ -1,26 +1,25 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import {UserListComponent} from "./users/user-list/user-list.component";
-import {LayoutComponent} from "./shared/layout/layout.component";
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+import { LayoutComponent } from "./shared/layout/layout.component";
 
 const appRoutes: Routes = [
-    {
-        path: '',
-        component:LayoutComponent
-    },
+  {
+    path: "",
+    component: LayoutComponent,
+    loadChildren: () =>
+      import("./feature/feature.module").then((mod) => mod.FeatureModule),
+  },
 
-    {
-        path: '**',
-        redirectTo: '',
-        pathMatch: 'full'
-    }
+  {
+    path: "**",
+    redirectTo: "",
+    pathMatch: "full",
+  },
 ];
 
 @NgModule({
-    imports: [
-        RouterModule.forRoot(appRoutes)
-    ],
-    exports: [RouterModule],
-    providers: []
+  imports: [RouterModule.forRoot(appRoutes)],
+  exports: [RouterModule],
+  providers: [],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -1,0 +1,25 @@
+<h2>Select Exam Type:</h2>
+<mat-form-field appearance="fill">
+    <mat-label>Exam Type</mat-label>
+    <mat-select [(ngModel)]="selectedExamType">
+        <mat-option *ngFor="let type of examTypes" [value]="type">{{ type }}</mat-option>
+    </mat-select>
+</mat-form-field>
+
+<h2>Select Difficulty:</h2>
+<mat-form-field appearance="fill">
+    <mat-label>Difficulty</mat-label>
+    <mat-select [(ngModel)]="selectedDifficulty">
+        <mat-option *ngFor="let level of difficultyLevels" [value]="level">{{ level }}</mat-option>
+    </mat-select>
+</mat-form-field>
+
+<h2>Select Question Type:</h2>
+<mat-form-field appearance="fill">
+    <mat-label>Question Type</mat-label>
+    <mat-select [(ngModel)]="selectedQuestionType">
+        <mat-option *ngFor="let type of questionTypes" [value]="type">{{ type }}</mat-option>
+    </mat-select>
+</mat-form-field>
+
+<button (click)="startExam()" color="primary" mat-raised-button>Start Exam</button>
