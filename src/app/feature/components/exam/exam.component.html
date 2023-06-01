@@ -23,3 +23,22 @@
 </mat-form-field>
 
 <button (click)="startExam()" color="primary" mat-raised-button>Start Exam</button>
+
+<!-- Display MCQ questions if selectedQuestionType is 'MCQ' -->
+<div *ngIf="selectedQuestionType === 'MCQ'">
+    <h2>Multiple Choice Questions:</h2>
+    <div *ngFor="let question of questions">
+        <p>{{ question.text }}</p>
+        <mat-radio-group [(ngModel)]="selectedAnswers[question.id]">
+            <mat-radio-button *ngFor="let option of question.options" [value]="option">{{ option }}</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <button (click)="submitExam()" color="primary" mat-raised-button>Submit</button>
+</div>
+
+<!-- Display result if examSubmitted is true -->
+<div *ngIf="examSubmitted">
+    <h2>Exam Result:</h2>
+    <p>Score: {{ score }}</p>
+    <p>Percentage: {{ percentage }}%</p>
+</div>

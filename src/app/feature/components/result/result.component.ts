@@ -23,13 +23,13 @@ export class ResultComponent implements OnInit {
       const difficulty = params.difficulty;
       const questionType = params.questionType;
 
-      this.examService
-        .fetchQuestions(examType, difficulty, questionType)
-        .subscribe((questions) => {
-          // Calculate the score and percentage based on user responses
-          this.score = this.examService.calculateScore(questions);
-          this.percentage = (this.score / questions.length) * 100;
-        });
+      // this.examService
+      //   .fetchQuestions(examType, difficulty, questionType)
+      //   .subscribe((questions) => {
+      //     // Calculate the score and percentage based on user responses
+      //     this.score = this.examService.calculateScore(questions);
+      //     this.percentage = (this.score / questions.length) * 100;
+      //   });
     });
   }
 }

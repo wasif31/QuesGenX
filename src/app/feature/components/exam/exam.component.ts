@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { ExamService } from "../../services/exam.service";
+import { Question } from "../../interfaces/Question";
 import { Router } from "@angular/router";
 
 @Component({
@@ -10,20 +12,44 @@ export class ExamComponent {
   examTypes: string[] = ["Reading", "Writing", "Listening"];
   difficultyLevels: string[] = ["Easy", "Medium", "Hard"];
   questionTypes: string[] = ["MCQ", "Fill in the Blanks"];
+
   selectedExamType: string;
   selectedDifficulty: string;
   selectedQuestionType: string;
 
-  constructor(private router: Router) {}
+  questions: Question[] = [];
+  selectedAnswers: { [key: number]: string } = {};
+
+  examSubmitted = false;
+  score: number;
+  percentage: number;
+
+  constructor(private examService: ExamService, private router: Router) {}
 
   startExam() {
-    // Pass the selected exam settings as query parameters
+    // Fetch questions based on selected exam settings
+    this.examService
+      .fetchQuestions(
+        this.selectedExamType,
+        this.selectedDifficulty,
+        this.selectedQuestionType
+      )
+      .subscribe((questions) => {
+        this.questions = questions;
+        console.log(questions);
+      });
+  }
+
+  submitExam() {
+    this.score = this.examService.calculateScore(
+      this.questions,
+      this.selectedAnswers
+    );
+    this.percentage = (this.score / this.questions.length) * 100;
+
+    // Navigate to the result page with the score and percentage as query parameters
     this.router.navigate(["/result"], {
-      queryParams: {
-        examType: this.selectedExamType,
-        difficulty: this.selectedDifficulty,
-        questionType: this.selectedQuestionType,
-      },
+      queryParams: { score: this.score, percentage: this.percentage },
     });
   }
 }
