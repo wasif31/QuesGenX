@@ -9,7 +9,7 @@ import { Router } from "@angular/router";
   styleUrls: ["./exam.component.css"],
 })
 export class ExamComponent {
-  examTypes: string[] = ["Reading", "Writing", "Listening"];
+  examTypes: string[] = ["Reading", "Writing", "Listening","Speaking"];
   difficultyLevels: string[] = ["Easy", "Medium", "Hard"];
   questionTypes: string[] = ["MCQ", "Fill in the Blanks"];
 

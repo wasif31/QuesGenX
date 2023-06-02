@@ -7,6 +7,7 @@ import { UserPageComponent } from "./components/user-page/user-page.component";
 import { HomeComponent } from "./components/home/home.component";
 import { ResultComponent } from "./components/result/result.component";
 import { ExamComponent } from "./components/exam/exam.component";
+import { SpeakingExamComponent } from './components/speaking-exam/speaking-exam.component';
 
 @NgModule({
   imports: [CommonModule, FeatureRoutingModule, SharedModule],
@@ -16,6 +17,8 @@ import { ExamComponent } from "./components/exam/exam.component";
     HomeComponent,
     ResultComponent,
     ExamComponent,
+    SpeakingExamComponent,
+
   ],
   exports: [HomeComponent],
 })
