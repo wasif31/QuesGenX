@@ -1,64 +1,91 @@
 import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
 import { Question } from "../interfaces/Question";
+import {HttpClientModule, HttpParams, HttpHeaders} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: "root",
 })
 export class ExamService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  fetchQuestions(
-    examType: string,
-    difficulty: string,
-    questionType: string
+  // fetchQuestions(
+  //   examType: string,
+  //   difficulty: string,
+  //   questionType: string
+  // ): Observable<Question[]> {
+  //   // Dummy data - replace with your actual data retrieval logic
+  //   const questions: Question[] = [
+  //     {
+  //       id: 1,
+  //       text: "Which country hosted the 2020 Summer Olympics?",
+  //       options: ["Japan", "United States", "Brazil", "China"],
+  //       answer: "Japan",
+  //     },
+  //     {
+  //       id: 2,
+  //       text: "Who is the author of the Harry Potter book series?",
+  //       options: [
+  //         "Stephen King",
+  //         "Dan Brown",
+  //         "J.K. Rowling",
+  //         "George R.R. Martin",
+  //       ],
+  //       answer: "J.K. Rowling",
+  //     },
+  //     {
+  //       id: 3,
+  //       text: "What is the capital city of France?",
+  //       options: ["Paris", "Rome", "Berlin", "London"],
+  //       answer: "Paris",
+  //     },
+  //     {
+  //       id: 4,
+  //       text: "Who painted the Mona Lisa?",
+  //       options: [
+  //         "Vincent van Gogh",
+  //         "Pablo Picasso",
+  //         "Michelangelo",
+  //         "Leonardo da Vinci",
+  //       ],
+  //       answer: "Leonardo da Vinci",
+  //     },
+  //     {
+  //       id: 5,
+  //       text: "Which planet is known as the 'Red Planet'?",
+  //       options: ["Mars", "Venus", "Jupiter", "Mercury"],
+  //       answer: "Mars",
+  //     },
+  //   ];
+  //
+  //   return of(questions);
+  // }
+
+  fetchQuestions2(
+      examType: string,
+      difficulty: string,
+      questionType: string,
+      selectedFile: File
   ): Observable<Question[]> {
-    // Dummy data - replace with your actual data retrieval logic
-    const questions: Question[] = [
-      {
-        id: 1,
-        text: "Which country hosted the 2020 Summer Olympics?",
-        options: ["Japan", "United States", "Brazil", "China"],
-        answer: "Japan",
-      },
-      {
-        id: 2,
-        text: "Who is the author of the Harry Potter book series?",
-        options: [
-          "Stephen King",
-          "Dan Brown",
-          "J.K. Rowling",
-          "George R.R. Martin",
-        ],
-        answer: "J.K. Rowling",
-      },
-      {
-        id: 3,
-        text: "What is the capital city of France?",
-        options: ["Paris", "Rome", "Berlin", "London"],
-        answer: "Paris",
-      },
-      {
-        id: 4,
-        text: "Who painted the Mona Lisa?",
-        options: [
-          "Vincent van Gogh",
-          "Pablo Picasso",
-          "Michelangelo",
-          "Leonardo da Vinci",
-        ],
-        answer: "Leonardo da Vinci",
-      },
-      {
-        id: 5,
-        text: "Which planet is known as the 'Red Planet'?",
-        options: ["Mars", "Venus", "Jupiter", "Mercury"],
-        answer: "Mars",
-      },
-    ];
+    //var questions = this.http.post<any>("http://127.0.0.1:8000/summarize/?no_of_quest=3", selectedFile)
 
-    return of(questions);
+    const formData = new FormData();
+    formData.append('file', selectedFile)
+
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'multipart/form-data');
+
+    const queryParams = new HttpParams().set('no_of_quest', 3);
+    //return this.http.get<any>("http://127.0.0.1:8000/")
+
+    return this.http.post<any>("http://127.0.0.1:8000/summarize/", formData, { params: queryParams })
+    // Dummy data - replace with your actual data retrieval logic
+
+    //return of(questions);
   }
+
 
   calculateScore(
     questions: Question[],

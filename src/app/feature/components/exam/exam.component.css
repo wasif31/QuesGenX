@@ -1,0 +1,16 @@
+.question-card {
+    margin-bottom: 5px;
+}
+
+.question-text {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.radio-group {
+    margin-top: 10px;
+}
+
+.radio-button {
+    margin-right: 8px;
+}
