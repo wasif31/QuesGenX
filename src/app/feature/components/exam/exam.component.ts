@@ -16,6 +16,7 @@ export class ExamComponent {
   selectedExamType: string;
   selectedDifficulty: string;
   selectedQuestionType: string;
+  selectedFile: File | null;
 
   questions: Question[] = [];
   selectedAnswers: { [key: number]: string } = {};
@@ -26,13 +27,18 @@ export class ExamComponent {
 
   constructor(private examService: ExamService, private router: Router) {}
 
+  onFileSelected(event: any): void {
+    this.selectedFile = event.target.files[0];
+  }
+
   startExam() {
     // Fetch questions based on selected exam settings
     this.examService
-      .fetchQuestions(
+      .fetchQuestions2(
         this.selectedExamType,
         this.selectedDifficulty,
-        this.selectedQuestionType
+        this.selectedQuestionType,
+        this.selectedFile
       )
       .subscribe((questions) => {
         this.questions = questions;

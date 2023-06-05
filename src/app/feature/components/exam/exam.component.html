@@ -22,19 +22,34 @@
     </mat-select>
 </mat-form-field>
 
+<h2>Upload PDF</h2>
+<div>
+    <input type="file" (change)="onFileSelected($event)" accept="application/pdf" />
+</div>
+
 <button (click)="startExam()" color="primary" mat-raised-button>Start Exam</button>
 
-<div *ngIf="selectedQuestionType === 'MCQ'">
-    <h2>Multiple Choice Questions:</h2>
-    <div *ngFor="let question of questions">
-        <p>{{ question.text }}</p>
-        <mat-radio-group [(ngModel)]="selectedAnswers[question.id]">
-            <mat-radio-button *ngFor="let option of question.options" [value]="option">{{ option }}</mat-radio-button>
-        </mat-radio-group>
+<!--Display MCQ questions if selectedQuestionType is 'MCQ'-->
+<mat-card>
+    <div *ngIf="selectedQuestionType === 'MCQ'">
+        <h2>Multiple Choice Questions:</h2>
+        <div class="question-card" *ngFor="let question of questions">
+            <mat-card>
+                <mat-card-content>
+                    <p class="question-text">{{ question.question }}</p>
+                    <mat-radio-group class="radio-group" [(ngModel)]="selectedAnswers[question.id]">
+                        <mat-radio-button class="radio-button" *ngFor="let option of question.options" [value]="option">
+                            {{ option }}
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <button (click)="submitExam()" color="primary" mat-raised-button>Submit</button>
     </div>
-    <button (click)="submitExam()" color="primary" mat-raised-button>Submit</button>
-</div>
+</mat-card>
 <div *ngIf="selectedExamType === 'Speaking'">
 <app-speaking-exam></app-speaking-exam>
 </div>
+
 
