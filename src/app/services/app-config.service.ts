@@ -13,7 +13,7 @@ export class AppConfigService {
   }
   load() {
 
-    const jsonFile = `assets/config/config.json`;
+    const jsonFile = `/assets/config.json`;
 
     return new Promise<void>((resolve, reject) => {
       this.http.get(jsonFile).toPromise().then((response : IAppConfig) => {
