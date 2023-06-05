@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {APP_INITIALIZER, NgModule} from '@angular/core';
+import {APP_INITIALIZER, ErrorHandler, NgModule} from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxLoggerLevel } from 'ngx-logger';
 
@@ -9,6 +9,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoggerModule } from 'ngx-logger';
 import {RouterModule} from "@angular/router";
 import {AppConfigService} from "./services/app-config.service";
+import {HttpInterceptorService} from "./services/http-interceptor.service";
+import {ErrorHandlerService} from "./services/error-handler.service";
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
 export function initializeApp(appConfigService: AppConfigService) {
   return (): Promise<any> => {
     return appConfigService.load();
@@ -31,7 +34,11 @@ export function initializeApp(appConfigService: AppConfigService) {
       serverLogLevel: NgxLoggerLevel.ERROR
     })
   ],
-  providers:[  { provide: APP_INITIALIZER,useFactory: initializeApp, deps: [AppConfigService], multi: true}],
+  providers:[
+      { provide: APP_INITIALIZER,useFactory: initializeApp, deps: [AppConfigService], multi: true},
+    { provide: HTTP_INTERCEPTORS,    useClass: HttpInterceptorService,    multi: true  },
+    { provide: ErrorHandler, useClass:ErrorHandlerService}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
