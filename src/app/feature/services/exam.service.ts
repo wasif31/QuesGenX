@@ -3,13 +3,17 @@ import { Observable, of } from "rxjs";
 import { Question } from "../interfaces/Question";
 import {HttpClientModule, HttpParams, HttpHeaders} from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
+import {AppConfigService} from "../../services/app-config.service";
 
 
 @Injectable({
   providedIn: "root",
 })
 export class ExamService {
-  constructor(private http: HttpClient) {}
+  protected apiServer = AppConfigService.settings.apiServer;
+  constructor(private http: HttpClient) {
+    console.log(this.apiServer.apiUrl);
+  }
 
   // fetchQuestions(
   //   examType: string,

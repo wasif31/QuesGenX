@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxLoggerLevel } from 'ngx-logger';
 
@@ -8,6 +8,12 @@ import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
 import { LoggerModule } from 'ngx-logger';
 import {RouterModule} from "@angular/router";
+import {AppConfigService} from "./services/app-config.service";
+export function initializeApp(appConfigService: AppConfigService) {
+  return (): Promise<any> => {
+    return appConfigService.load();
+  }
+}
 
 @NgModule({
   declarations: [
@@ -25,6 +31,7 @@ import {RouterModule} from "@angular/router";
       serverLogLevel: NgxLoggerLevel.ERROR
     })
   ],
+  providers:[  { provide: APP_INITIALIZER,useFactory: initializeApp, deps: [AppConfigService], multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
