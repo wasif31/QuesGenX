@@ -7,6 +7,7 @@ import { UserPageComponent } from "./components/user-page/user-page.component";
 import { HomeComponent } from "./components/home/home.component";
 import { ResultComponent } from "./components/result/result.component";
 import { ExamComponent } from "./components/exam/exam.component";
+import { SpeakingExamComponent } from './components/speaking-exam/speaking-exam.component';
 import { TimerComponent } from './components/timer/timer.component';
 
 @NgModule({
@@ -17,6 +18,7 @@ import { TimerComponent } from './components/timer/timer.component';
     HomeComponent,
     ResultComponent,
     ExamComponent,
+    SpeakingExamComponent,
     TimerComponent,
   ],
   exports: [HomeComponent],

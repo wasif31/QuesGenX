@@ -9,13 +9,14 @@ import { Router } from "@angular/router";
   styleUrls: ["./exam.component.css"],
 })
 export class ExamComponent {
-  examTypes: string[] = ["Reading", "Writing", "Listening"];
+  examTypes: string[] = ["Reading", "Writing", "Listening","Speaking"];
   difficultyLevels: string[] = ["Easy", "Medium", "Hard"];
   questionTypes: string[] = ["MCQ", "Fill in the Blanks"];
 
   selectedExamType: string;
   selectedDifficulty: string;
   selectedQuestionType: string;
+  selectedFile: File | null;
 
   questions: Question[] = [];
   selectedAnswers: { [key: number]: string } = {};
@@ -26,13 +27,18 @@ export class ExamComponent {
 
   constructor(private examService: ExamService, private router: Router) {}
 
+  onFileSelected(event: any): void {
+    this.selectedFile = event.target.files[0];
+  }
+
   startExam() {
     // Fetch questions based on selected exam settings
     this.examService
-      .fetchQuestions(
+      .fetchQuestions2(
         this.selectedExamType,
         this.selectedDifficulty,
-        this.selectedQuestionType
+        this.selectedQuestionType,
+        this.selectedFile
       )
       .subscribe((questions) => {
         this.questions = questions;

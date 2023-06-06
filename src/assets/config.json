@@ -1,0 +1,13 @@
+{
+  "appTitle": "QuesGenX",
+
+  "apiServer" : {
+    "apiUrl" :"http://127.0.0.1:8000/"
+  },
+
+  "appSetting"             : {
+    "config1"    : "Value1",
+    "config2"    : "Value2",
+    "config3"    : "Value3"
+  }
+}
