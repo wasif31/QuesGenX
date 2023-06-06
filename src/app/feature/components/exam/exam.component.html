@@ -21,6 +21,13 @@
         <mat-option *ngFor="let type of questionTypes" [value]="type">{{ type }}</mat-option>
     </mat-select>
 </mat-form-field>
+<h2>Select Input Type:</h2>
+<mat-form-field appearance="fill">
+    <mat-label>Question Type</mat-label>
+    <mat-select [(ngModel)]="selectedInputType">
+        <mat-option *ngFor="let type of inputTypes" [value]="type">{{ type }}</mat-option>
+    </mat-select>
+</mat-form-field>
 
 <h2>Upload PDF</h2>
 <div>

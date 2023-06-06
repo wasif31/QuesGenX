@@ -12,10 +12,12 @@ export class ExamComponent {
   examTypes: string[] = ["Reading", "Writing", "Listening","Speaking"];
   difficultyLevels: string[] = ["Easy", "Medium", "Hard"];
   questionTypes: string[] = ["MCQ", "Fill in the Blanks"];
+  inputTypes: string[] = ["PDF", "Images","Text"];
 
   selectedExamType: string;
   selectedDifficulty: string;
   selectedQuestionType: string;
+  selectedInputType: string;
   selectedFile: File | null;
 
   questions: Question[] = [];
