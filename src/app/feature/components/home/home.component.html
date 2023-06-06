@@ -1,9 +1,23 @@
-<h2>Select Language:</h2>
-<mat-form-field appearance="fill">
-    <mat-label>Language</mat-label>
-    <mat-select [(ngModel)]="selectedLanguage">
-        <mat-option *ngFor="let language of languages" [value]="language">{{ language }}</mat-option>
-    </mat-select>
-</mat-form-field>
+<mat-card class="card-wrapper">
+    <mat-card-title class="margin-title">Language</mat-card-title>
 
-<button (click)="startExam()" color="primary" mat-raised-button>Start Exam</button>
+    <mat-card-subtitle  class="margin-title">
+        Question Generation Preferred Language
+    </mat-card-subtitle>
+    <mat-card-content>
+        <div fxLayout="column">
+            <div class="form-button">
+                <mat-form-field >
+                    <mat-label>Language</mat-label>
+                    <mat-select [(ngModel)]="selectedLanguage">
+                        <mat-option *ngFor="let language of languages" [value]="language">{{ language }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <button (click)="startExam()" color="primary" mat-raised-button>Start Exam</button>
+            </div>
+        </div>
+    </mat-card-content>
+
+</mat-card>
+
+

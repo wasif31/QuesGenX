@@ -7,7 +7,28 @@ import { Router } from "@angular/router";
   styleUrls: ["./home.component.css"],
 })
 export class HomeComponent {
-  languages: string[] = ["English", "Spanish", "French"];
+  languages: string[] = [
+    'English',
+    'Spanish',
+    'French',
+    'German',
+    'Italian',
+    'Chinese',
+    'Japanese',
+    'Russian',
+    'Portuguese',
+    'Arabic',
+    'Hindi',
+    'Bengali',
+    'Indonesian',
+    'Swahili',
+    'Korean',
+    'Turkish',
+    'Dutch',
+    'Swedish',
+    'Polish',
+    'Greek',
+  ];
 
   selectedLanguage: string;
 
