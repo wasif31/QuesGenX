@@ -26,6 +26,8 @@
 
 <!-- Display MCQ questions if selectedQuestionType is 'MCQ' -->
 <div *ngIf="selectedQuestionType === 'MCQ'">
+    <app-timer *ngIf="selectedQuestionType === 'MCQ'" [duration]="60"></app-timer>
+
     <h2>Multiple Choice Questions:</h2>
     <div *ngFor="let question of questions">
         <p>{{ question.text }}</p>

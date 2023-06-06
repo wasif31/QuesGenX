@@ -1,0 +1,20 @@
+.timer {
+    display: inline-block;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    color: #333;
+    background-color: #f2f2f2;
+    border-radius: 4px;
+    padding: 8px 12px;
+}
+
+.minutes,
+.seconds {
+    display: inline-block;
+    min-width: 30px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 2px;
+    margin: 0 2px;
+    padding: 2px;
+}
