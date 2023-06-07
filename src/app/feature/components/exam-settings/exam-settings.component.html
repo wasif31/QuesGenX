@@ -1,0 +1,52 @@
+<mat-card class="card-wrapper">
+    <mat-card-title class="margin-title">Settings</mat-card-title>
+
+    <mat-card-subtitle class="margin-title">
+        Select Exam Settings
+    </mat-card-subtitle>
+    <mat-card-content>
+        <div fxLayout="column">
+            <div class="form-button">
+                <h2>Select Exam Type:</h2>
+                <mat-form-field appearance="fill">
+                    <mat-label>Exam Type</mat-label>
+                    <mat-select [(ngModel)]="selectedExamType">
+                        <mat-option *ngFor="let type of examTypes" [value]="type">{{ type }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <h2>Select Difficulty:</h2>
+                <mat-form-field appearance="fill">
+                    <mat-label>Difficulty</mat-label>
+                    <mat-select [(ngModel)]="selectedDifficulty">
+                        <mat-option *ngFor="let level of difficultyLevels" [value]="level">{{ level }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <h2>Select Question Type:</h2>
+                <mat-form-field appearance="fill">
+                    <mat-label>Question Type</mat-label>
+                    <mat-select [(ngModel)]="selectedQuestionType">
+                        <mat-option *ngFor="let type of questionTypes" [value]="type">{{ type }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <h2>Select Input Type:</h2>
+                <mat-form-field appearance="fill">
+                    <mat-label>Question Type</mat-label>
+                    <mat-select [(ngModel)]="selectedInputType">
+                        <mat-option *ngFor="let type of inputTypes" [value]="type">{{ type }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <h2>Upload PDF</h2>
+                <div>
+                    <input (change)="onFileSelected($event)" accept="application/pdf" type="file"/>
+                </div>
+
+                <button (click)="startExam()" color="primary" mat-raised-button>Start Exam</button>
+            </div>
+        </div>
+    </mat-card-content>
+
+</mat-card>
+

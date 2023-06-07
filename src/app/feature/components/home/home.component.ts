@@ -8,26 +8,26 @@ import { Router } from "@angular/router";
 })
 export class HomeComponent {
   languages: string[] = [
-    'English',
-    'Spanish',
-    'French',
-    'German',
-    'Italian',
-    'Chinese',
-    'Japanese',
-    'Russian',
-    'Portuguese',
-    'Arabic',
-    'Hindi',
-    'Bengali',
-    'Indonesian',
-    'Swahili',
-    'Korean',
-    'Turkish',
-    'Dutch',
-    'Swedish',
-    'Polish',
-    'Greek',
+    "English",
+    "Spanish",
+    "French",
+    "German",
+    "Italian",
+    "Chinese",
+    "Japanese",
+    "Russian",
+    "Portuguese",
+    "Arabic",
+    "Hindi",
+    "Bengali",
+    "Indonesian",
+    "Swahili",
+    "Korean",
+    "Turkish",
+    "Dutch",
+    "Swedish",
+    "Polish",
+    "Greek",
   ];
 
   selectedLanguage: string;
@@ -36,7 +36,7 @@ export class HomeComponent {
 
   startExam() {
     // Navigate to the exam component and pass the selected language as a query parameter
-    this.router.navigate(["/exam"], {
+    this.router.navigate(["/settings"], {
       queryParams: { lang: this.selectedLanguage },
     });
   }

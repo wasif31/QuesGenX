@@ -9,6 +9,7 @@ import { ResultComponent } from "./components/result/result.component";
 import { ExamComponent } from "./components/exam/exam.component";
 import { SpeakingExamComponent } from './components/speaking-exam/speaking-exam.component';
 import { TimerComponent } from './components/timer/timer.component';
+import { ExamSettingsComponent } from './components/exam-settings/exam-settings.component';
 
 @NgModule({
   imports: [CommonModule, FeatureRoutingModule, SharedModule],
@@ -20,6 +21,7 @@ import { TimerComponent } from './components/timer/timer.component';
     ExamComponent,
     SpeakingExamComponent,
     TimerComponent,
+    ExamSettingsComponent,
   ],
   exports: [HomeComponent],
 })

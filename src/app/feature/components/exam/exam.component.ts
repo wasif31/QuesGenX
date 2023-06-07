@@ -9,43 +9,17 @@ import { Router } from "@angular/router";
   styleUrls: ["./exam.component.css"],
 })
 export class ExamComponent {
-  examTypes: string[] = ["Reading", "Writing", "Listening","Speaking"];
-  difficultyLevels: string[] = ["Easy", "Medium", "Hard"];
-  questionTypes: string[] = ["MCQ", "Fill in the Blanks"];
-  inputTypes: string[] = ["PDF", "Images","Text"];
-
   selectedExamType: string;
-  selectedDifficulty: string;
   selectedQuestionType: string;
-  selectedInputType: string;
-  selectedFile: File | null;
 
   questions: Question[] = [];
   selectedAnswers: { [key: number]: string } = {};
 
-  examSubmitted = false;
   score: number;
   percentage: number;
 
-  constructor(private examService: ExamService, private router: Router) {}
-
-  onFileSelected(event: any): void {
-    this.selectedFile = event.target.files[0];
-  }
-
-  startExam() {
-    // Fetch questions based on selected exam settings
-    this.examService
-      .fetchQuestions2(
-        this.selectedExamType,
-        this.selectedDifficulty,
-        this.selectedQuestionType,
-        this.selectedFile
-      )
-      .subscribe((questions) => {
-        this.questions = questions;
-        console.log(questions);
-      });
+  constructor(private examService: ExamService, private router: Router) {
+    //todo ashik bhai get the necessary data with question or other items
   }
 
   submitExam() {
