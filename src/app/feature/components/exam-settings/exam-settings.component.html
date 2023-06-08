@@ -7,43 +7,47 @@
     <mat-card-content>
         <div fxLayout="column">
             <div class="form-button">
-                <h2>Select Exam Type:</h2>
-                <mat-form-field appearance="fill">
-                    <mat-label>Exam Type</mat-label>
-                    <mat-select [(ngModel)]="selectedExamType">
-                        <mat-option *ngFor="let type of examTypes" [value]="type">{{ type }}</mat-option>
-                    </mat-select>
-                </mat-form-field>
+                <div style="width: 100%">
 
-                <h2>Select Difficulty:</h2>
-                <mat-form-field appearance="fill">
-                    <mat-label>Difficulty</mat-label>
-                    <mat-select [(ngModel)]="selectedDifficulty">
-                        <mat-option *ngFor="let level of difficultyLevels" [value]="level">{{ level }}</mat-option>
-                    </mat-select>
-                </mat-form-field>
+                    <div fxLayout="column">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Select Exam Type</mat-label>
+                            <mat-select [(ngModel)]="selectedExamType">
+                                <mat-option *ngFor="let type of examTypes" [value]="type">{{ type }}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
 
-                <h2>Select Question Type:</h2>
-                <mat-form-field appearance="fill">
-                    <mat-label>Question Type</mat-label>
-                    <mat-select [(ngModel)]="selectedQuestionType">
-                        <mat-option *ngFor="let type of questionTypes" [value]="type">{{ type }}</mat-option>
-                    </mat-select>
-                </mat-form-field>
-                <h2>Select Input Type:</h2>
-                <mat-form-field appearance="fill">
-                    <mat-label>Question Type</mat-label>
-                    <mat-select [(ngModel)]="selectedInputType">
-                        <mat-option *ngFor="let type of inputTypes" [value]="type">{{ type }}</mat-option>
-                    </mat-select>
-                </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Select Difficulty</mat-label>
+                            <mat-select [(ngModel)]="selectedDifficulty">
+                                <mat-option *ngFor="let level of difficultyLevels"
+                                            [value]="level">{{ level }}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
 
-                <h2>Upload PDF</h2>
-                <div>
-                    <input (change)="onFileSelected($event)" accept="application/pdf" type="file"/>
+                    <div fxLayout="column">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Select Question Type</mat-label>
+                            <mat-select [(ngModel)]="selectedQuestionType">
+                                <mat-option *ngFor="let type of questionTypes" [value]="type">{{ type }}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Select Question Type</mat-label>
+                            <mat-select [(ngModel)]="selectedInputType">
+                                <mat-option *ngFor="let type of inputTypes" [value]="type">{{ type }}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                    <div fxLayout="row">
+                        <mat-label class="mr-10">Upload PDF</mat-label>
+                        <input (change)="onFileSelected($event)" accept="application/pdf" type="file"/>
+                    </div>
                 </div>
-
-                <button (click)="startExam()" color="primary" mat-raised-button>Start Exam</button>
+                <button (click)="startExam()" class="submit-button" color="primary" mat-raised-button>Start Exam
+                </button>
             </div>
         </div>
     </mat-card-content>
