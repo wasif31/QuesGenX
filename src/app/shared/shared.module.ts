@@ -40,6 +40,7 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatStepperModule } from "@angular/material/stepper";
 import { MatTableModule } from "@angular/material/table";
 import { CommonModule } from "@angular/common";
+import { CoreModule } from "../core/core.module";
 
 @NgModule({
   imports: [
@@ -91,6 +92,7 @@ import { CommonModule } from "@angular/common";
     MatTooltipModule,
     MatTreeModule,
     CommonModule,
+    CoreModule,
   ],
   declarations: [LayoutComponent],
   exports: [

@@ -24,3 +24,21 @@ h1.example-app-name {
 .example-is-mobile .example-sidenav-container {
     flex: 1 0 auto;
 }
+
+.blur {
+    filter: blur(4px); /* Apply the desired blur effect */
+    pointer-events: none; /* Disable pointer events on blurred elements */
+}
+
+.loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+}
+
+/*.app-loader {*/
+/*    filter: none; !* Remove blur effect from app-loader component *!*/
+/*}*/

@@ -20,7 +20,14 @@
 
         <mat-sidenav-content>
             <main class="main">
-                <router-outlet></router-outlet>
+
+                <ng-container *ngIf="loading">
+                    <app-loader class="loading"></app-loader>
+                </ng-container>
+                <div [ngClass]="{ 'blur': loading }">
+                    <router-outlet></router-outlet>
+                </div>
+
             </main>
         </mat-sidenav-content>
     </mat-sidenav-container>
