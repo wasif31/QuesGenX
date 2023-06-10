@@ -34,14 +34,15 @@
                             </mat-select>
                         </mat-form-field>
                         <mat-form-field appearance="fill">
-                            <mat-label>Select Question Type</mat-label>
+                            <mat-label>Select Content Type</mat-label>
                             <mat-select [(ngModel)]="selectedInputType">
                                 <mat-option *ngFor="let type of inputTypes" [value]="type">{{ type }}</mat-option>
                             </mat-select>
                         </mat-form-field>
                     </div>
 
-                    <div fxLayout="row">
+                    <div *ngIf="selectedExamType == 'Writing' && (selectedInputType=='PDF'||selectedInputType=='Image')"
+                         fxLayout="row">
                         <mat-label class="mr-10">Upload PDF</mat-label>
                         <input (change)="onFileSelected($event)" accept="application/pdf" type="file"/>
                     </div>

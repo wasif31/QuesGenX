@@ -2,6 +2,12 @@ import { Component } from "@angular/core";
 import { Question } from "../../interfaces/Question";
 import { ExamService } from "../../services/exam.service";
 import { Router } from "@angular/router";
+import {
+  ContentType,
+  DifficultyType,
+  ExamType,
+  QuestionType,
+} from "../../types/types";
 
 @Component({
   selector: "app-exam-settings",
@@ -9,14 +15,14 @@ import { Router } from "@angular/router";
   styleUrls: ["./exam-settings.component.css"],
 })
 export class ExamSettingsComponent {
-  examTypes: string[] = ["Reading", "Writing", "Listening", "Speaking"];
-  difficultyLevels: string[] = ["Easy", "Medium", "Hard"];
-  questionTypes: string[] = ["MCQ", "Fill in the Blanks"];
-  inputTypes: string[] = ["PDF", "Images", "Text"];
-  selectedExamType: string;
-  selectedDifficulty: string;
-  selectedQuestionType: string;
-  selectedInputType: string;
+  examTypes: ExamType[] = ["Reading", "Writing", "Listening", "Speaking"];
+  difficultyLevels: DifficultyType[] = ["Easy", "Medium", "Hard"];
+  questionTypes: QuestionType[] = ["MCQ", "Fill in the Blanks"];
+  inputTypes: ContentType[] = ["PDF", "Image", "Text"];
+  selectedExamType: ExamType;
+  selectedDifficulty: DifficultyType;
+  selectedQuestionType: QuestionType;
+  selectedInputType: ContentType;
   selectedFile: File | null;
   questions: Question[] = [];
 
@@ -27,16 +33,16 @@ export class ExamSettingsComponent {
     this.router.navigate(["/exam"]);
     // Fetch questions based on selected exam settings
     /*this.examService
-              .fetchQuestions2(
-                this.selectedExamType,
-                this.selectedDifficulty,
-                this.selectedQuestionType,
-                this.selectedFile
-              )
-              .subscribe((questions) => {
-                this.questions = questions;
-                console.log(questions);
-              });*/
+                      .fetchQuestions2(
+                        this.selectedExamType,
+                        this.selectedDifficulty,
+                        this.selectedQuestionType,
+                        this.selectedFile
+                      )
+                      .subscribe((questions) => {
+                        this.questions = questions;
+                        console.log(questions);
+                      });*/
   }
 
   onFileSelected(event: any): void {
