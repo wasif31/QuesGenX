@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import {Component, EventEmitter, Output} from "@angular/core";
 import { Question } from "../../interfaces/Question";
 import { ExamService } from "../../services/exam.service";
 import { Router } from "@angular/router";
@@ -8,6 +8,8 @@ import {
   ExamType,
   QuestionType,
 } from "../../types/types";
+import {ExamSettingsService} from "../../services/exam-settings.service";
+import {ExamSettings} from "../../interfaces/ExamSettings";
 
 @Component({
   selector: "app-exam-settings",
@@ -25,27 +27,31 @@ export class ExamSettingsComponent {
   selectedInputType: ContentType;
   selectedFile: File | null;
   questions: Question[] = [];
-
-  constructor(private examService: ExamService, private router: Router) {}
+  @Output() settingsSaved: EventEmitter<any> = new EventEmitter<any>();
+  private selectedQuestionNumber: number;
+  constructor(private examService: ExamService, private router: Router,private examSettingsService: ExamSettingsService) {}
 
   startExam() {
-    //todo ashik bhai make a post request with this
+    this.onSaveSettings();
     this.router.navigate(["/exam"]);
     // Fetch questions based on selected exam settings
-    /*this.examService
-                      .fetchQuestions2(
-                        this.selectedExamType,
-                        this.selectedDifficulty,
-                        this.selectedQuestionType,
-                        this.selectedFile
-                      )
-                      .subscribe((questions) => {
-                        this.questions = questions;
-                        console.log(questions);
-                      });*/
   }
 
   onFileSelected(event: any): void {
     this.selectedFile = event.target.files[0];
+    this.examSettingsService.setFileData(this.selectedFile);
+  }
+  onSaveSettings() {
+    const settings:ExamSettings = {
+      selectedDifficulty: this.selectedDifficulty,
+      selectedInputType: this.selectedInputType,
+      selectedQuestionType: this.selectedQuestionType,
+      selectedExamType: this.selectedExamType,
+      selectedQuestionNumber: this.selectedQuestionNumber
+    };
+    // Save the settings to the service
+
+    //this.settingsSaved.emit(settings);
+    this.examSettingsService.setSettings(settings);
   }
 }
