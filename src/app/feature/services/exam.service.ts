@@ -84,7 +84,7 @@ export class ExamService {
     const queryParams = new HttpParams().set('no_of_quest', 3);
     //return this.http.get<any>("http://127.0.0.1:8000/")
 
-    return this.http.post<any>("http://127.0.0.1:8000/summarize/", formData, { params: queryParams })
+    return this.http.post<any>("http://127.0.0.1:8000/questFromPDF/", formData, { params: queryParams })
     // Dummy data - replace with your actual data retrieval logic
 
     //return of(questions);
@@ -98,9 +98,9 @@ export class ExamService {
     let score = 0;
 
     questions.forEach((question) => {
-      const userResponse = selectedAnswers[question.id];
+      const userResponse = selectedAnswers[question.Id];
 
-      if (userResponse === question.answer) {
+      if (userResponse === question.Answer) {
         score++;
       }
     });

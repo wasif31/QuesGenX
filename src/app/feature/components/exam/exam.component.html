@@ -6,9 +6,9 @@
         <div *ngFor="let question of questions" class="question-card">
             <mat-card>
                 <mat-card-content>
-                    <p class="question-text">{{ question.question }}</p>
-                    <mat-radio-group [(ngModel)]="selectedAnswers[question.id]" class="radio-group">
-                        <mat-radio-button *ngFor="let option of question.options" [value]="option" class="radio-button">
+                    <p class="question-text">{{ question?.Question }}</p>
+                    <mat-radio-group [(ngModel)]="selectedAnswers[question.Id]" class="radio-group">
+                        <mat-radio-button *ngFor="let option of question?.Options" [value]="option" class="radio-button">
                             {{ option }}
                         </mat-radio-button>
                     </mat-radio-group>
