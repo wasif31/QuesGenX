@@ -1,34 +1,34 @@
-import {Component, OnDestroy} from '@angular/core';
-import {DomSanitizer} from "@angular/platform-browser";
+import { Component, OnDestroy } from "@angular/core";
+import { DomSanitizer } from "@angular/platform-browser";
+import { AudioRecordingService } from "../../services/audio-recording.service";
 
 declare var $: any;
-import * as RecordRTC from 'recordrtc';
-import {AudioRecordingService} from "../../services/audio-recording.service";
+
 @Component({
-  selector: 'app-speaking-exam',
-  templateUrl: './speaking-exam.component.html',
-  styleUrls: ['./speaking-exam.component.css']
+  selector: "app-speaking-exam",
+  templateUrl: "./speaking-exam.component.html",
+  styleUrls: ["./speaking-exam.component.css"],
 })
-export class SpeakingExamComponent implements OnDestroy{
+export class SpeakingExamComponent implements OnDestroy {
   isRecording = false;
   recordedTime;
   blobUrl;
   teste;
 
   constructor(
-      private audioRecordingService: AudioRecordingService,
-      private sanitizer: DomSanitizer
+    private audioRecordingService: AudioRecordingService,
+    private sanitizer: DomSanitizer
   ) {
     this.audioRecordingService
-        .recordingFailed()
-        .subscribe(() => (this.isRecording = false));
+      .recordingFailed()
+      .subscribe(() => (this.isRecording = false));
     this.audioRecordingService
-        .getRecordedTime()
-        .subscribe(time => (this.recordedTime = time));
-    this.audioRecordingService.getRecordedBlob().subscribe(data => {
+      .getRecordedTime()
+      .subscribe((time) => (this.recordedTime = time));
+    this.audioRecordingService.getRecordedBlob().subscribe((data) => {
       this.teste = data;
       this.blobUrl = this.sanitizer.bypassSecurityTrustUrl(
-          URL.createObjectURL(data.blob)
+        URL.createObjectURL(data.blob)
       );
     });
   }
@@ -69,4 +69,6 @@ export class SpeakingExamComponent implements OnDestroy{
     link.download = this.teste.title;
     link.click();
   }
+
+  submitExam() {}
 }

@@ -4,24 +4,18 @@ import { HomeComponent } from "./components/home/home.component";
 import { ResultComponent } from "./components/result/result.component";
 import { ExamComponent } from "./components/exam/exam.component";
 import { ExamSettingsComponent } from "./components/exam-settings/exam-settings.component";
+import { AboutUsComponent } from "./components/about-us/about-us.component";
+import { ContactUsComponent } from "./components/contact-us/contact-us.component";
+import { ResultListComponent } from "./components/result-list/result-list.component";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "exam", component: ExamComponent },
   { path: "settings", component: ExamSettingsComponent },
   { path: "result", component: ResultComponent },
-
-  /*{
-                path: '',
-                component: LayoutComponent,
-                children: [
-                  {
-                    path: '',
-                    component: UserPageComponent,
-                    children: [{ path: '', component: UserListComponent }],
-                  },
-                ],
-              },*/
+  { path: "results", component: ResultListComponent },
+  { path: "about-us", component: AboutUsComponent },
+  { path: "contact-us", component: ContactUsComponent },
 ];
 
 @NgModule({

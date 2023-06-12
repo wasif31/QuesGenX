@@ -1,9 +1,9 @@
-import {Component, OnInit} from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { ExamService } from "../../services/exam.service";
 import { Question } from "../../interfaces/Question";
 import { Router } from "@angular/router";
-import {ExamSettingsService} from "../../services/exam-settings.service";
-import {ExamSettings} from "../../interfaces/ExamSettings";
+import { ExamSettingsService } from "../../services/exam-settings.service";
+import { ExamSettings } from "../../interfaces/ExamSettings";
 
 @Component({
   selector: "app-exam",
@@ -18,7 +18,11 @@ export class ExamComponent implements OnInit {
   settings: ExamSettings;
   private fileData: any;
 
-  constructor(private examService: ExamService, private router: Router,private examSettingsService: ExamSettingsService) {
+  constructor(
+    private examService: ExamService,
+    private router: Router,
+    private examSettingsService: ExamSettingsService
+  ) {
     //todo ashik bhai get the necessary data with question or other items
   }
 
@@ -38,16 +42,18 @@ export class ExamComponent implements OnInit {
   ngOnInit(): void {
     this.settings = this.examSettingsService.getSettings();
     this.fileData = this.examSettingsService.getFileData();
-    this.examService
-                      .fetchQuestions2(
-                        this.settings.selectedExamType,
-                        this.settings.selectedDifficulty,
-                        this.settings.selectedQuestionType,
-                        this.fileData
-                      )
-                      .subscribe((questions) => {
-                        this.questions = questions;
-                        console.log(questions);
-                      });
+    if (this.settings.selectedExamType == "Writing") {
+      this.examService
+        .fetchQuestions2(
+          this.settings.selectedExamType,
+          this.settings.selectedDifficulty,
+          this.settings.selectedQuestionType,
+          this.fileData
+        )
+        .subscribe((questions) => {
+          this.questions = questions;
+          console.log(questions);
+        });
+    }
   }
 }

@@ -9,6 +9,7 @@
     font-size: 16px;
     margin-bottom: 10px;
 }
+
 .stop-button {
     background-color: rgba(118, 146, 254, 0.69); /* Green */
     border: none;
@@ -20,6 +21,7 @@
     font-size: 16px;
     margin-bottom: 10px;
 }
+
 .cancel-button {
     background-color: #af7541; /* Green */
     border: none;
@@ -31,3 +33,4 @@
     font-size: 16px;
     margin-bottom: 10px;
 }
+

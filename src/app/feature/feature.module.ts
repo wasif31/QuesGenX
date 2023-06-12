@@ -7,9 +7,12 @@ import { UserPageComponent } from "./components/user-page/user-page.component";
 import { HomeComponent } from "./components/home/home.component";
 import { ResultComponent } from "./components/result/result.component";
 import { ExamComponent } from "./components/exam/exam.component";
-import { SpeakingExamComponent } from './components/speaking-exam/speaking-exam.component';
-import { TimerComponent } from './components/timer/timer.component';
-import { ExamSettingsComponent } from './components/exam-settings/exam-settings.component';
+import { SpeakingExamComponent } from "./components/speaking-exam/speaking-exam.component";
+import { TimerComponent } from "./components/timer/timer.component";
+import { ExamSettingsComponent } from "./components/exam-settings/exam-settings.component";
+import { AboutUsComponent } from "./components/about-us/about-us.component";
+import { ContactUsComponent } from "./components/contact-us/contact-us.component";
+import { ResultListComponent } from "./components/result-list/result-list.component";
 
 @NgModule({
   imports: [CommonModule, FeatureRoutingModule, SharedModule],
@@ -22,6 +25,9 @@ import { ExamSettingsComponent } from './components/exam-settings/exam-settings.
     SpeakingExamComponent,
     TimerComponent,
     ExamSettingsComponent,
+    AboutUsComponent,
+    ResultListComponent,
+    ContactUsComponent,
   ],
   exports: [HomeComponent],
 })
