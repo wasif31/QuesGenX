@@ -3,68 +3,61 @@ import { Observable } from "rxjs";
 import { Question } from "../interfaces/Question";
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { AppConfigService } from "../../services/app-config.service";
+import { Result } from "../interfaces/Result";
 
 @Injectable({
   providedIn: "root",
 })
 export class ExamService {
   protected apiServer = AppConfigService.settings.apiServer;
+  private results: Result[] = [
+    {
+      id: 1,
+      score: 80,
+      percentage: 80,
+      questions: [
+        {
+          question: "What is the capital of France?",
+          answer: "Paris",
+          id: 2,
+          options: [],
+        },
+        {
+          id: 1,
+          question: "Who painted the Mona Lisa?",
+          options: [],
+          answer: "Leonardo da Vinci",
+        },
+      ],
+    },
+    {
+      id: 2,
+      score: 70,
+      percentage: 70,
+      questions: [
+        {
+          question: "What is the largest planet in our solar system?",
+          answer: "Jupiter",
+          id: 3,
+          options: [],
+        },
+        {
+          question: 'Who wrote the play "Romeo and Juliet"?',
+          answer: "William Shakespeare",
+          id: 4,
+          options: [],
+        },
+      ],
+    },
+  ];
 
   constructor(private http: HttpClient) {
     console.log(this.apiServer.apiUrl);
   }
 
-  // fetchQuestions(
-  //   examType: string,
-  //   difficulty: string,
-  //   questionType: string
-  // ): Observable<Question[]> {
-  //   // Dummy data - replace with your actual data retrieval logic
-  //   const questions: Question[] = [
-  //     {
-  //       id: 1,
-  //       text: "Which country hosted the 2020 Summer Olympics?",
-  //       options: ["Japan", "United States", "Brazil", "China"],
-  //       answer: "Japan",
-  //     },
-  //     {
-  //       id: 2,
-  //       text: "Who is the author of the Harry Potter book series?",
-  //       options: [
-  //         "Stephen King",
-  //         "Dan Brown",
-  //         "J.K. Rowling",
-  //         "George R.R. Martin",
-  //       ],
-  //       answer: "J.K. Rowling",
-  //     },
-  //     {
-  //       id: 3,
-  //       text: "What is the capital city of France?",
-  //       options: ["Paris", "Rome", "Berlin", "London"],
-  //       answer: "Paris",
-  //     },
-  //     {
-  //       id: 4,
-  //       text: "Who painted the Mona Lisa?",
-  //       options: [
-  //         "Vincent van Gogh",
-  //         "Pablo Picasso",
-  //         "Michelangelo",
-  //         "Leonardo da Vinci",
-  //       ],
-  //       answer: "Leonardo da Vinci",
-  //     },
-  //     {
-  //       id: 5,
-  //       text: "Which planet is known as the 'Red Planet'?",
-  //       options: ["Mars", "Venus", "Jupiter", "Mercury"],
-  //       answer: "Mars",
-  //     },
-  //   ];
-  //
-  //   return of(questions);
-  // }
+  getResults(): Result[] {
+    return this.results;
+  }
 
   fetchQuestions2(
     examType: string,

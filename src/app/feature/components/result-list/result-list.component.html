@@ -1,1 +1,39 @@
-<p>result-list works!</p>
+<mat-card class="card-wrapper">
+    <mat-card-title class="margin-title">Results</mat-card-title>
+
+
+    <mat-card-content>
+        <div class="form-button" fxLayout="column">
+            <table [dataSource]="dataSource" class="mat-elevation-z8" mat-table>
+
+                <ng-container matColumnDef="id">
+                    <th *matHeaderCellDef mat-header-cell>ID</th>
+                    <td *matCellDef="let result" mat-cell>{{ result.id }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="score">
+                    <th *matHeaderCellDef mat-header-cell>Score</th>
+                    <td *matCellDef="let result" mat-cell>{{ result.score }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="percentage">
+                    <th *matHeaderCellDef mat-header-cell>Percentage</th>
+                    <td *matCellDef="let result" mat-cell>{{ result.percentage }}%</td>
+                </ng-container>
+
+                <ng-container matColumnDef="download">
+                    <th *matHeaderCellDef mat-header-cell></th>
+                    <td *matCellDef="let result" mat-cell>
+                        <button (click)="downloadResult(result)" mat-icon-button>
+                            <mat-icon>get_app</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+
+                <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+                <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+
+            </table>
+        </div>
+    </mat-card-content>
+</mat-card>

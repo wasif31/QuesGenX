@@ -1,1 +1,27 @@
-<p>contact-us works!</p>
+<mat-card class="card-wrapper">
+    <mat-card-header>
+        <mat-card-title>Contact Us</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div class="form-button" fxLayout="column">
+            <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Enter your name" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Enter your email" required type="email">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Message</mat-label>
+                <textarea matInput placeholder="Enter your message" required></textarea>
+            </mat-form-field>
+
+            <button (click)="contactUs()" class="submit-button" color="primary" mat-raised-button>Start Exam
+            </button>
+        </div>
+    </mat-card-content>
+</mat-card>
