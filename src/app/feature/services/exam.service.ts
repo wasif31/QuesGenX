@@ -1,16 +1,15 @@
 import { Injectable } from "@angular/core";
-import { Observable, of } from "rxjs";
+import { Observable } from "rxjs";
 import { Question } from "../interfaces/Question";
-import {HttpClientModule, HttpParams, HttpHeaders} from '@angular/common/http';
-import { HttpClient } from '@angular/common/http';
-import {AppConfigService} from "../../services/app-config.service";
-
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
+import { AppConfigService } from "../../services/app-config.service";
 
 @Injectable({
   providedIn: "root",
 })
 export class ExamService {
   protected apiServer = AppConfigService.settings.apiServer;
+
   constructor(private http: HttpClient) {
     console.log(this.apiServer.apiUrl);
   }
@@ -68,28 +67,31 @@ export class ExamService {
   // }
 
   fetchQuestions2(
-      examType: string,
-      difficulty: string,
-      questionType: string,
-      selectedFile: File
+    examType: string,
+    difficulty: string,
+    questionType: string,
+    selectedFile: File
   ): Observable<Question[]> {
     //var questions = this.http.post<any>("http://127.0.0.1:8000/summarize/?no_of_quest=3", selectedFile)
 
     const formData = new FormData();
-    formData.append('file', selectedFile)
+    formData.append("file", selectedFile);
 
     const headers = new HttpHeaders();
-    headers.append('Content-Type', 'multipart/form-data');
+    headers.append("Content-Type", "multipart/form-data");
 
-    const queryParams = new HttpParams().set('no_of_quest', 3);
+    const queryParams = new HttpParams().set("no_of_quest", 3);
     //return this.http.get<any>("http://127.0.0.1:8000/")
 
-    return this.http.post<any>("http://127.0.0.1:8000/questFromPDF/", formData, { params: queryParams })
+    return this.http.post<any>(
+      "http://127.0.0.1:8000/api/exam/generateQuestion/",
+      formData,
+      { params: queryParams }
+    );
     // Dummy data - replace with your actual data retrieval logic
 
     //return of(questions);
   }
-
 
   calculateScore(
     questions: Question[],
@@ -98,9 +100,9 @@ export class ExamService {
     let score = 0;
 
     questions.forEach((question) => {
-      const userResponse = selectedAnswers[question.Id];
+      const userResponse = selectedAnswers[question.id];
 
-      if (userResponse === question.Answer) {
+      if (userResponse === question.answer) {
         score++;
       }
     });

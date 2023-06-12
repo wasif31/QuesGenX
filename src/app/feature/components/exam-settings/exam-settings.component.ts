@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from "@angular/core";
+import { Component, EventEmitter, Output } from "@angular/core";
 import { Question } from "../../interfaces/Question";
 import { ExamService } from "../../services/exam.service";
 import { Router } from "@angular/router";
@@ -8,8 +8,8 @@ import {
   ExamType,
   QuestionType,
 } from "../../types/types";
-import {ExamSettingsService} from "../../services/exam-settings.service";
-import {ExamSettings} from "../../interfaces/ExamSettings";
+import { ExamSettingsService } from "../../services/exam-settings.service";
+import { ExamSettings } from "../../interfaces/ExamSettings";
 
 @Component({
   selector: "app-exam-settings",
@@ -17,7 +17,7 @@ import {ExamSettings} from "../../interfaces/ExamSettings";
   styleUrls: ["./exam-settings.component.css"],
 })
 export class ExamSettingsComponent {
-  examTypes: ExamType[] = ["Reading", "Writing", "Listening", "Speaking"];
+  examTypes: ExamType[] = ["Writing", "Listening", "Speaking"]; //todo "Reading"
   difficultyLevels: DifficultyType[] = ["Easy", "Medium", "Hard"];
   questionTypes: QuestionType[] = ["MCQ", "Fill in the Blanks"];
   inputTypes: ContentType[] = ["PDF", "Image", "Text"];
@@ -29,7 +29,12 @@ export class ExamSettingsComponent {
   questions: Question[] = [];
   @Output() settingsSaved: EventEmitter<any> = new EventEmitter<any>();
   private selectedQuestionNumber: number;
-  constructor(private examService: ExamService, private router: Router,private examSettingsService: ExamSettingsService) {}
+
+  constructor(
+    private examService: ExamService,
+    private router: Router,
+    private examSettingsService: ExamSettingsService
+  ) {}
 
   startExam() {
     this.onSaveSettings();
@@ -41,13 +46,14 @@ export class ExamSettingsComponent {
     this.selectedFile = event.target.files[0];
     this.examSettingsService.setFileData(this.selectedFile);
   }
+
   onSaveSettings() {
-    const settings:ExamSettings = {
+    const settings: ExamSettings = {
       selectedDifficulty: this.selectedDifficulty,
       selectedInputType: this.selectedInputType,
       selectedQuestionType: this.selectedQuestionType,
       selectedExamType: this.selectedExamType,
-      selectedQuestionNumber: this.selectedQuestionNumber
+      selectedQuestionNumber: this.selectedQuestionNumber,
     };
     // Save the settings to the service
 

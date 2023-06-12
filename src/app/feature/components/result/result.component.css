@@ -1,0 +1,29 @@
+.card-wrapper {
+    width: 90%;
+    height: 88%;
+    margin-top: 5%;
+    margin-left: 5%;
+    display: flex;
+}
+
+.margin-title {
+    margin: auto;
+}
+
+.form-button {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form-button .mat-mdc-form-field {
+    margin-right: 10px;
+    height: 80px;
+    width: 100%;
+}
+
+.submit-button {
+    width: 100%;
+    margin-top: 5%;
+}
+

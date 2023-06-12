@@ -1,21 +1,24 @@
 <!--Display MCQ questions if selectedQuestionType is 'MCQ'-->
-<mat-card>
+<mat-card class="card-wrapper">
     <div *ngIf="settings?.selectedQuestionType === 'MCQ'">
-        <app-timer [duration]="60"></app-timer>
-        <h2>Multiple Choice Questions:</h2>
-        <div *ngFor="let question of questions" class="question-card">
-            <mat-card>
-                <mat-card-content>
-                    <p class="question-text">{{ question?.Question }}</p>
-                    <mat-radio-group [(ngModel)]="selectedAnswers[question.Id]" class="radio-group">
-                        <mat-radio-button *ngFor="let option of question?.Options" [value]="option" class="radio-button">
-                            {{ option }}
-                        </mat-radio-button>
-                    </mat-radio-group>
-                </mat-card-content>
-            </mat-card>
+        <mat-card-title class="margin-title">Exam</mat-card-title>
+
+        <mat-card-subtitle class="margin-title">
+            Multiple Choice Questions:
+        </mat-card-subtitle>
+        <div *ngFor="let question of questions" class="question-card form-button">
+            <mat-card-content>
+                <p class="question-text">{{ question?.question }}</p>
+                <mat-radio-group [(ngModel)]="selectedAnswers[question.id]" class="radio-group">
+                    <mat-radio-button *ngFor="let option of question?.options" [value]="option"
+                                      class="radio-button">
+                        {{ option }}
+                    </mat-radio-button>
+                </mat-radio-group>
+            </mat-card-content>
         </div>
-        <button (click)="submitExam()" color="primary" mat-raised-button>Submit</button>
+        <app-timer [duration]="60"></app-timer>
+        <button (click)="submitExam()" class="submit-button" color="primary" mat-raised-button>Submit</button>
     </div>
 </mat-card>
 <div *ngIf="settings?.selectedExamType === 'Speaking'">
