@@ -11,15 +11,11 @@ import {ExamSettings} from "../../interfaces/ExamSettings";
   styleUrls: ["./exam.component.css"],
 })
 export class ExamComponent implements OnInit {
-  selectedExamType: string;
-  selectedQuestionType: string;
-
   questions: Question[] = [];
   selectedAnswers: { [key: number]: string } = {};
-
   score: number;
   percentage: number;
-  private settings: ExamSettings;
+  settings: ExamSettings;
   private fileData: any;
 
   constructor(private examService: ExamService, private router: Router,private examSettingsService: ExamSettingsService) {

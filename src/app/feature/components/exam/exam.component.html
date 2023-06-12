@@ -1,6 +1,6 @@
 <!--Display MCQ questions if selectedQuestionType is 'MCQ'-->
 <mat-card>
-    <div *ngIf="selectedQuestionType === 'MCQ'">
+    <div *ngIf="settings?.selectedQuestionType === 'MCQ'">
         <app-timer [duration]="60"></app-timer>
         <h2>Multiple Choice Questions:</h2>
         <div *ngFor="let question of questions" class="question-card">
@@ -18,7 +18,7 @@
         <button (click)="submitExam()" color="primary" mat-raised-button>Submit</button>
     </div>
 </mat-card>
-<div *ngIf="selectedExamType === 'Speaking'">
+<div *ngIf="settings?.selectedExamType === 'Speaking'">
     <app-speaking-exam></app-speaking-exam>
 </div>
 
