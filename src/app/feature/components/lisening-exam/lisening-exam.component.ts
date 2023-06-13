@@ -13,7 +13,9 @@ export class LiseningExamComponent implements OnInit {
   }
 
   ngOnInit() {
+    //this is the uploaded video id
     const videoId = '9834996f40c44b3ba5f13ee7e550640a'
+    //get dynamically uploaded video and save it
     //this.videoUrl = this.videoService.getVideoStatus(videoId);
     this.videoUrl = './assets/videos/first_video.mp4';
 

@@ -21,7 +21,7 @@ export class VideoService {
               console.log('API response:', response);
               const data = response;
               if(response&&response.data.status=='completed'&&response.data.video_url){
-                //this.downloadFile(response.data.video_url,headers);
+                this.downloadFile(response.data.video_url,headers);
                 return response.data.video_url;
               }
             },
@@ -95,7 +95,6 @@ export class VideoService {
         );
   }
   getApiKey(): string {
-    // return "Your Api Key";
-    return "OWMyOWQ4ZjhjODAwNGFiYmI0MDAyMTI4NDVjMzA5ZGUtMTY4NjY0MTU1Mw==";
+     return "Your Api Key";
   }
 }
