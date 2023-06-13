@@ -6,4 +6,5 @@ export interface ExamSettings{
     selectedQuestionType?:QuestionType;
     selectedInputType?:ContentType;
     selectedQuestionNumber?:number;
+    selectedLanguage?:string;
 }

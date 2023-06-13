@@ -1,7 +1,7 @@
-import { Component, EventEmitter, Output } from "@angular/core";
+import {Component, EventEmitter, OnInit, Output} from "@angular/core";
 import { Question } from "../../interfaces/Question";
 import { ExamService } from "../../services/exam.service";
-import { Router } from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {
   ContentType,
   DifficultyType,
@@ -16,11 +16,11 @@ import { ExamSettings } from "../../interfaces/ExamSettings";
   templateUrl: "./exam-settings.component.html",
   styleUrls: ["./exam-settings.component.css"],
 })
-export class ExamSettingsComponent {
+export class ExamSettingsComponent implements OnInit {
   examTypes: ExamType[] = ["Writing", "Listening", "Speaking"]; //todo "Reading"
   difficultyLevels: DifficultyType[] = ["Easy", "Medium", "Hard"];
   questionTypes: QuestionType[] = ["MCQ", "Fill in the Blanks"];
-  inputTypes: ContentType[] = ["PDF", "Image", "Text"];
+  inputTypes: ContentType[] = ["PDF", "Text"];
   selectedExamType: ExamType;
   selectedDifficulty: DifficultyType;
   selectedQuestionType: QuestionType;
@@ -29,11 +29,14 @@ export class ExamSettingsComponent {
   questions: Question[] = [];
   @Output() settingsSaved: EventEmitter<any> = new EventEmitter<any>();
   private selectedQuestionNumber: number;
+  private selectedLang: string;
+  enteredText: string;
 
   constructor(
     private examService: ExamService,
     private router: Router,
-    private examSettingsService: ExamSettingsService
+    private examSettingsService: ExamSettingsService,
+    private route: ActivatedRoute
   ) {}
 
   startExam() {
@@ -54,10 +57,17 @@ export class ExamSettingsComponent {
       selectedQuestionType: this.selectedQuestionType,
       selectedExamType: this.selectedExamType,
       selectedQuestionNumber: this.selectedQuestionNumber,
+      selectedLanguage: this.selectedLang,
+
     };
     // Save the settings to the service
 
     //this.settingsSaved.emit(settings);
     this.examSettingsService.setSettings(settings);
+  }
+
+  ngOnInit(): void {
+    const params = this.route.snapshot.queryParams;
+    this.selectedLang = params['lang'];
   }
 }
