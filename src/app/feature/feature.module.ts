@@ -13,6 +13,7 @@ import { ExamSettingsComponent } from "./components/exam-settings/exam-settings.
 import { AboutUsComponent } from "./components/about-us/about-us.component";
 import { ContactUsComponent } from "./components/contact-us/contact-us.component";
 import { ResultListComponent } from "./components/result-list/result-list.component";
+import { LiseningExamComponent } from './components/lisening-exam/lisening-exam.component';
 
 @NgModule({
   imports: [CommonModule, FeatureRoutingModule, SharedModule],
@@ -28,6 +29,7 @@ import { ResultListComponent } from "./components/result-list/result-list.compon
     AboutUsComponent,
     ResultListComponent,
     ContactUsComponent,
+    LiseningExamComponent,
   ],
   exports: [HomeComponent],
 })

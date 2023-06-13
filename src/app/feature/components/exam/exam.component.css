@@ -16,7 +16,7 @@
 }
 
 .submit-button {
-    width: 100%;
+    width: 98%;
     margin-top: 5%;
 }
 
@@ -40,4 +40,7 @@ margin-title {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.width-90{
+    width: 90%;
 }
