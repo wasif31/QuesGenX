@@ -20,7 +20,7 @@ export class ExamService {
           question: "What is the capital of France?",
           answer: "Paris",
           id: 2,
-          options: [],
+          options: ["Paris", "Moscow","Dhaka","Mumbai"],
         },
         {
           id: 1,
