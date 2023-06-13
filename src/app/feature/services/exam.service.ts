@@ -20,7 +20,7 @@ export class ExamService {
           question: "What is the capital of France?",
           answer: "Paris",
           id: 2,
-          options: ["Paris", "Moscow","Dhaka","Mumbai"],
+          options: ["Paris", "Moscow", "Dhaka", "Mumbai"],
         },
         {
           id: 1,
@@ -78,6 +78,33 @@ export class ExamService {
 
     return this.http.post<any>(
       "http://127.0.0.1:8000/api/exam/generateQuestion/",
+      formData,
+      { params: queryParams }
+    );
+    // Dummy data - replace with your actual data retrieval logic
+
+    //return of(questions);
+  }
+
+  getSpeakingResponse(
+    examType: string,
+    difficulty: string,
+    questionType: string,
+    selectedFile: File
+  ): Observable<string> {
+    //var questions = this.http.post<any>("http://127.0.0.1:8000/summarize/?no_of_quest=3", selectedFile)
+
+    const formData = new FormData();
+    formData.append("file", selectedFile);
+
+    const headers = new HttpHeaders();
+    headers.append("Content-Type", "multipart/form-data");
+
+    const queryParams = new HttpParams().set("no_of_quest", 3);
+    //return this.http.get<any>("http://127.0.0.1:8000/")
+
+    return this.http.post<any>(
+      "http://127.0.0.1:8000/api/exam/evaluateSpeech/",
       formData,
       { params: queryParams }
     );

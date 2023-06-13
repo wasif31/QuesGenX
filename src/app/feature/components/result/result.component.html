@@ -1,4 +1,20 @@
-<mat-card class="card-wrapper">
+<mat-card *ngIf="evaluation" class="card-wrapper">
+    <mat-card-title class="margin-title">Exam Result:</mat-card-title>
+
+    <mat-card-subtitle class="margin-title">
+        Evaluation
+    </mat-card-subtitle>
+    <mat-card-content>
+        <div fxLayout="column">
+            <div class="form-button">
+                {{evaluation}}
+            </div>
+        </div>
+
+    </mat-card-content>
+
+</mat-card>
+<mat-card *ngIf="!evaluation" class="card-wrapper">
     <mat-card-title class="margin-title">Exam Result:</mat-card-title>
 
     <mat-card-subtitle class="margin-title">
@@ -16,4 +32,3 @@
     </mat-card-content>
 
 </mat-card>
-

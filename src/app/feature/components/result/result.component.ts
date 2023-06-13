@@ -10,6 +10,7 @@ import { ExamService } from "../../services/exam.service";
 export class ResultComponent implements OnInit {
   score: number;
   percentage: number;
+  evaluation: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,6 +22,7 @@ export class ResultComponent implements OnInit {
     this.route.queryParams.subscribe((params) => {
       this.score = params.score;
       this.percentage = params.percentage;
+      this.evaluation = params.evaluation;
     });
   }
 }

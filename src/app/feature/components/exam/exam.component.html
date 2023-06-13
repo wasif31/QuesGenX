@@ -20,7 +20,7 @@
         <app-timer [duration]="60"></app-timer>
         <button (click)="submitExam()" class="submit-button" color="primary" mat-raised-button>Submit</button>
     </div>
-    <div *ngIf="settings?.selectedExamType === 'Speaking'"  class="submit-button  margin-title form-button">
+    <div *ngIf="settings?.selectedExamType === 'Speaking'" class="submit-button  margin-title form-button">
         <mat-card-title class="margin-title">Speaking Test</mat-card-title>
 
         <mat-card-subtitle class="margin-title">
@@ -31,7 +31,6 @@
                 <app-speaking-exam></app-speaking-exam>
             </mat-card-content>
         </div>
-        <button (click)="submitExam()" class="submit-button" color="primary" mat-raised-button>Submit</button>
     </div>
     <div *ngIf="settings?.selectedExamType === 'Listening'" class="submit-button  margin-title form-button">
         <mat-card-title class="margin-title">Listening Test</mat-card-title>

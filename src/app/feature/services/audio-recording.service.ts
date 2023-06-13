@@ -40,24 +40,44 @@ export class AudioRecordingService {
 
     this._recordingTime.next("00:00");
     navigator.mediaDevices
-        .getUserMedia({ audio: true })
-        .then(s => {
-          this.stream = s;
-          this.record();
-        })
-        .catch(error => {
-          this._recordingFailed.next('');
-        });
+      .getUserMedia({ audio: true })
+      .then((s) => {
+        this.stream = s;
+        this.record();
+      })
+      .catch((error) => {
+        this._recordingFailed.next("");
+      });
   }
 
   abortRecording() {
     this.stopMedia();
   }
 
+  stopRecording() {
+    if (this.recorder) {
+      this.recorder.stop(
+        (blob) => {
+          if (this.startTime) {
+            const mp3Name = encodeURIComponent(
+              "audio_" + new Date().getTime() + ".wav"
+            );
+            this.stopMedia();
+            this._recorded.next({ blob: blob, title: mp3Name });
+          }
+        },
+        () => {
+          this.stopMedia();
+          this._recordingFailed.next("");
+        }
+      );
+    }
+  }
+
   private record() {
     this.recorder = new RecordRTC.StereoAudioRecorder(this.stream, {
       type: "audio",
-      mimeType: "audio/webm"
+      mimeType: "audio/webm",
     });
 
     this.recorder.record();
@@ -66,9 +86,9 @@ export class AudioRecordingService {
       const currentTime = moment();
       const diffTime = moment.duration(currentTime.diff(this.startTime));
       const time =
-          this.toString(diffTime.minutes()) +
-          ":" +
-          this.toString(diffTime.seconds());
+        this.toString(diffTime.minutes()) +
+        ":" +
+        this.toString(diffTime.seconds());
       this._recordingTime.next(time);
     }, 1000);
   }
@@ -80,33 +100,13 @@ export class AudioRecordingService {
     return val;
   }
 
-  stopRecording() {
-    if (this.recorder) {
-      this.recorder.stop(
-          blob => {
-            if (this.startTime) {
-              const mp3Name = encodeURIComponent(
-                  "audio_" + new Date().getTime() + ".mp3"
-              );
-              this.stopMedia();
-              this._recorded.next({ blob: blob, title: mp3Name });
-            }
-          },
-          () => {
-            this.stopMedia();
-            this._recordingFailed.next('');
-          }
-      );
-    }
-  }
-
   private stopMedia() {
     if (this.recorder) {
       this.recorder = null;
       clearInterval(this.interval);
       this.startTime = null;
       if (this.stream) {
-        this.stream.getAudioTracks().forEach(track => track.stop());
+        this.stream.getAudioTracks().forEach((track) => track.stop());
         this.stream = null;
       }
     }
