@@ -44,3 +44,7 @@ margin-title {
 .width-90 {
     width: 90%;
 }
+
+.radio-div {
+    align-self: flex-start;
+}

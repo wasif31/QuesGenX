@@ -1,9 +1,10 @@
-.div-listen{
-   /* height: 350px !important;*/
-    display:flex;
-    width:90% !important;
-    height:90% !important;
+.div-listen {
+    /* height: 350px !important;*/
+    display: flex;
+    width: 90% !important;
+    height: 90% !important;
 }
+
 .question-card {
     margin-bottom: 5px;
 }
@@ -47,7 +48,12 @@ margin-title {
     flex-direction: column;
     align-items: center;
 }
-.width-90{
+
+.width-90 {
     width: 90%;
+}
+
+.radio-div {
+    align-self: flex-start;
 }
 

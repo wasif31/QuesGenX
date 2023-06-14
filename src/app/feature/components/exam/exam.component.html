@@ -7,9 +7,9 @@
         <mat-card-subtitle class="margin-title">
             Multiple Choice Questions:
         </mat-card-subtitle>
-        <div *ngFor="let question of questions" class="question-card form-button">
+        <div *ngFor="let question of questions" class="radio-div ">
             <mat-card-content>
-                <div class="radio-div">
+                <div class="">
                     <p class="question-text">{{ question?.question }}</p>
                     <mat-radio-group [(ngModel)]="selectedAnswers[question.id]" class="radio-group">
                         <mat-radio-button *ngFor="let option of question?.options" [value]="option"

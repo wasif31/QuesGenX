@@ -3,7 +3,7 @@
         <source [src]="videoUrl" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    <div *ngFor="let question of questions" class="question-card form-button">
+    <div *ngFor="let question of questions" class="question-card radio-div">
         <mat-card-content>
             <p class="question-text">{{ question?.question }}</p>
             <mat-radio-group [(ngModel)]="selectedAnswers[question.id]" class="radio-group">
