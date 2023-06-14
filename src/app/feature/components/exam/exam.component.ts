@@ -52,6 +52,7 @@ export class ExamComponent implements OnInit {
             this.settings.selectedExamType,
             this.settings.selectedDifficulty,
             this.settings.selectedQuestionType,
+            this.settings.selectedLanguage,
             this.fileData
           )
           .subscribe((questions) => {
