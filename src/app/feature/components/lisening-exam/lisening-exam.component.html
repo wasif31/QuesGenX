@@ -3,4 +3,17 @@
     <source [src]="videoUrl" type="video/mp4">
     Your browser does not support the video tag.
 </video>
+    <div *ngFor="let question of questions" class="question-card form-button">
+        <mat-card-content>
+            <p class="question-text">{{ question?.question }}</p>
+            <mat-radio-group [(ngModel)]="selectedAnswers[question.id]" class="radio-group">
+                <mat-radio-button *ngFor="let option of question?.options" [value]="option"
+                                  class="radio-button">
+                    {{ option }}
+                </mat-radio-button>
+            </mat-radio-group>
+        </mat-card-content>
+    </div>
+    <app-timer *ngIf="questions.length>0" (timeExpired)="handleTimeExpired()" [duration]="60"></app-timer>
+    <button [disabled]="isTimeExpired" (click)="submitExam()" class="submit-button" color="primary" mat-raised-button>Submit</button>
 </div>

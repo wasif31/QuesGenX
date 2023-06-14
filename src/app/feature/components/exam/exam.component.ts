@@ -44,7 +44,6 @@ export class ExamComponent implements OnInit {
   ngOnInit(): void {
     this.settings = this.examSettingsService.getSettings();
     this.fileData = this.examSettingsService.getFileData();
-    this.fileData = this.examSettingsService.getFileData();
     if (this.settings.selectedExamType == "Writing") {
       if (this.settings.selectedInputType == "Text") {
         this.examService

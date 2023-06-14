@@ -67,9 +67,7 @@ export class VideoService {
         {
           avatar_id: 'Daisy-inskirt-20220818',
           avatar_style: 'normal',
-          input_text: 'Cristiano Ronaldo, born on February 5, 1985, is a Portuguese professional footballer widely regarded as one of the greatest players of all time. He has achieved remarkable success throughout his career, playing for top clubs like Sporting CP, Manchester United, Real Madrid, and Juventus.\n' +
-              '\n' +
-              'Known for his exceptional athleticism, speed, and goal-scoring ability, Ronaldo has won numerous individual awards, including multiple FIFA Ballon d\'Or titles. He has consistently displayed his remarkable skills, both with his feet and in the air, and has showcased his versatility by playing as a forward or winger.',
+          input_text: this.getText(),
           offset: {
             x: 0,
             y: 0
@@ -97,6 +95,9 @@ export class VideoService {
         );
   }
   getApiKey(): string {
-     return "Your Api Key";
+     return "OWMyOWQ4ZjhjODAwNGFiYmI0MDAyMTI4NDVjMzA5ZGUtMTY4NjY0MTU1Mw==";
+  }
+  getText(): string {
+      return "Brain Station 23 is a software development company based in Dhaka, Bangladesh. It was founded in 2006 and has since grown to become one of the leading software development companies in the country. Brain Station 23 offers a wide range of software development services, including web development, mobile app development, cloud computing, data science and machine learning, enterprise application development, and testing and quality assurance. Brain Station 23 has a long list of satisfied clients, such as Grameenphone, Robi, and British Telecom. The company has also been recognized for its excellence by a number of organizations, including the World Economic Forum and the Bangladesh government.";
   }
 }
