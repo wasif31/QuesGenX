@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
 
 @Component({
   selector: "app-timer",
@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from "@angular/core";
 })
 export class TimerComponent implements OnInit {
   @Input() duration: number; // Duration in seconds
+  @Output() timeExpired: EventEmitter<void> = new EventEmitter<void>();
   minutes: number;
   seconds: number;
   timer: any;
@@ -23,6 +24,7 @@ export class TimerComponent implements OnInit {
       if (this.seconds === 0) {
         if (this.minutes === 0) {
           this.stopTimer();
+          this.timeExpired.emit();
         } else {
           this.minutes--;
           this.seconds = 59;

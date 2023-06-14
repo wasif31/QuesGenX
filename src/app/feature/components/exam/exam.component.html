@@ -17,8 +17,8 @@
                 </mat-radio-group>
             </mat-card-content>
         </div>
-        <app-timer [duration]="60"></app-timer>
-        <button (click)="submitExam()" class="submit-button" color="primary" mat-raised-button>Submit</button>
+        <app-timer (timeExpired)="handleTimeExpired()" [duration]="60"></app-timer>
+        <button [disabled]="isTimeExpired" (click)="submitExam()" class="submit-button" color="primary" mat-raised-button>Submit</button>
     </div>
     <div *ngIf="settings?.selectedExamType === 'Speaking'" class="submit-button  margin-title form-button">
         <mat-card-title class="margin-title">Speaking Test</mat-card-title>

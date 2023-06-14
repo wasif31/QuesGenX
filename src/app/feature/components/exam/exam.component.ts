@@ -18,6 +18,7 @@ export class ExamComponent implements OnInit {
   percentage: number;
   settings: ExamSettings;
   private fileData: any;
+  isTimeExpired = false;
 
   constructor(
     private examService: ExamService,
@@ -71,5 +72,11 @@ export class ExamComponent implements OnInit {
           });
       }
     }
+  }
+  handleTimeExpired() {
+    // Perform actions when the timer reaches zero
+    // For example, disable a button or show a message
+    console.log('Time has run out!');
+    this.isTimeExpired = true;
   }
 }
