@@ -1,6 +1,7 @@
 <!--Display MCQ questions if selectedQuestionType is 'MCQ'-->
 <mat-card class="card-wrapper">
-    <div *ngIf="settings?.selectedQuestionType === 'MCQ'" class="submit-button  margin-title form-button">
+    <div *ngIf="settings?.selectedQuestionType === 'MCQ' && settings?.selectedExamType === 'Listening'"
+         class="submit-button  margin-title form-button">
         <mat-card-title class="margin-title">Exam</mat-card-title>
 
         <mat-card-subtitle class="margin-title">
