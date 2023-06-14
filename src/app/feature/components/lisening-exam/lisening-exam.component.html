@@ -1,8 +1,8 @@
-<div >
-<video class="div-listen" controls>
-    <source [src]="videoUrl" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
+<div>
+    <video [autoplay]="questions.length>0" class="div-listen" controls>
+        <source [src]="videoUrl" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
     <div *ngFor="let question of questions" class="question-card form-button">
         <mat-card-content>
             <p class="question-text">{{ question?.question }}</p>
@@ -14,6 +14,8 @@
             </mat-radio-group>
         </mat-card-content>
     </div>
-    <app-timer *ngIf="questions.length>0" (timeExpired)="handleTimeExpired()" [duration]="60"></app-timer>
-    <button [disabled]="isTimeExpired" (click)="submitExam()" class="submit-button" color="primary" mat-raised-button>Submit</button>
+    <app-timer (timeExpired)="handleTimeExpired()" *ngIf="questions.length>0" [duration]="120"></app-timer>
+    <button (click)="submitExam()" [disabled]="isTimeExpired" class="submit-button" color="primary" mat-raised-button>
+        Submit
+    </button>
 </div>
