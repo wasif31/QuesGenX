@@ -15,7 +15,7 @@ export class ResultListComponent implements OnInit {
   displayedColumns: string[] = ["id", "score", "percentage", "download"];
   dataSource: MatTableDataSource<Result>;
   results: Result[];
-  constructor(private resultService: ResultService) {}
+  constructor(private resultService: ResultService,private examService: ExamService) {}
 
   ngOnInit() {
     // Fetch the list of results from the service
@@ -24,7 +24,7 @@ export class ResultListComponent implements OnInit {
       this.results  = result;
       console.log(result);
     });;
-    this.dataSource = new MatTableDataSource<Result>(this.results);
+    this.dataSource = new MatTableDataSource<Result>(this.examService.getResults());
   }
 
   downloadResult(result: Result) {
