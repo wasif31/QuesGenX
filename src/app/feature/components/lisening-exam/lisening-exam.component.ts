@@ -70,7 +70,7 @@ export class LiseningExamComponent implements OnInit {
             .fetchQuestionByText(
                 this.settings.selectedExamType,
                 this.settings.selectedDifficulty,
-                this.settings.selectedQuestionType,
+                "MCQ",
                 this.settings.selectedLanguage,
                 this.fileData
             )

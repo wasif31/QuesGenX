@@ -103,21 +103,22 @@ export class ExamService {
     //var questions = this.http.post<any>("http://127.0.0.1:8000/summarize/?no_of_quest=3", selectedFile)
 
 
-    const headers = new HttpHeaders();
-    headers.append("Content-Type", "multipart/form-data");
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-    const queryParams = new HttpParams()
-        .set("no_of_quest", 5)
-        .set("examType", examType)
-        .set("difficulty", difficulty)
-        .set("questionType", questionType)
-        .set("selectedLanguage", selectedLanguage)
-    ;
+    const body = {
+      no_of_quest: 5,
+      examType: examType,
+      difficulty: difficulty,
+      questionType: "MCQ",
+      selectedLanguage: selectedLanguage,
+      text: selectedText
+    };
     //return this.http.get<any>("http://127.0.0.1:8000/")
 
     return this.http.post<any>(
       "http://127.0.0.1:8000/api/exam/generateQuestionFromText/",
-      { params: queryParams }
+        body,
+        { headers: headers }
     ).pipe(
         catchError((error) => {
           console.error('An error occurred:', error);
