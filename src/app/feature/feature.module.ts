@@ -16,7 +16,7 @@ import { ResultListComponent } from "./components/result-list/result-list.compon
 import { LiseningExamComponent } from './components/lisening-exam/lisening-exam.component';
 
 @NgModule({
-  imports: [CommonModule, FeatureRoutingModule, SharedModule],
+  imports: [CommonModule, FeatureRoutingModule, SharedModule,],
   declarations: [
     UserPageComponent,
     UserListComponent,

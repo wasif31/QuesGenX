@@ -13,6 +13,7 @@ import { ErrorHandlerService } from "./services/error-handler.service";
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { LoadingIndicatorService } from "./core/services/LoadingIndicatorService";
 import { LoadingInterceptorService } from "./core/services/LoadingInterceptorService";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 export function initializeApp(appConfigService: AppConfigService) {
   return (): Promise<any> => {
@@ -28,6 +29,7 @@ export function initializeApp(appConfigService: AppConfigService) {
     CoreModule,
     AppRoutingModule,
     RouterModule,
+    MatSnackBarModule,
     LoggerModule.forRoot({
       serverLoggingUrl: `api/logs`,
       level: NgxLoggerLevel.ERROR,

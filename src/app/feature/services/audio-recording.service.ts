@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import * as RecordRTC from "recordrtc";
 import * as moment from "moment";
 import { Observable, Subject } from "rxjs";
+import {SnackbarService} from "../../shared/services/snackbar.service";
 
 interface RecordedAudioOutput {
   blob: Blob;
@@ -19,6 +20,7 @@ export class AudioRecordingService {
   private _recorded = new Subject<RecordedAudioOutput>();
   private _recordingTime = new Subject<string>();
   private _recordingFailed = new Subject<string>();
+  private snackbarService: SnackbarService
 
   getRecordedBlob(): Observable<RecordedAudioOutput> {
     return this._recorded.asObservable();
@@ -46,6 +48,7 @@ export class AudioRecordingService {
         this.record();
       })
       .catch((error) => {
+        this.snackbarService.showError('An error occurred!');
         this._recordingFailed.next("");
       });
   }
@@ -69,6 +72,7 @@ export class AudioRecordingService {
         () => {
           this.stopMedia();
           this._recordingFailed.next("");
+          this.snackbarService.showError('An error occurred in recording!');
         }
       );
     }

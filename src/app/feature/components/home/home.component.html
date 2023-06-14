@@ -13,7 +13,7 @@
                         <mat-option *ngFor="let language of languages" [value]="language">{{ language }}</mat-option>
                     </mat-select>
                 </mat-form-field>
-                <button (click)="startExam()" class="submit-button" color="primary" mat-raised-button>Start Exam
+                <button [disabled]="!selectedLanguage" (click)="startExam()" class="submit-button" color="primary" mat-raised-button>Start Exam
                 </button>
             </div>
         </div>

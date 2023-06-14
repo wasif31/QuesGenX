@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {SnackbarService} from "../../shared/services/snackbar.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class VideoService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private snackbarService: SnackbarService) { }
   getVideoStatus(videoId: string):any{
     const apiUrl = `https://api.heygen.com/v1/video_status.get?video_id=${videoId}`;
     const apiKey = this.getApiKey();
@@ -90,6 +91,7 @@ export class VideoService {
             },
             (error) => {
               console.error('API error:', error);
+                this.snackbarService.showError('An error occurred!'+error.message);
               // Handle errors
             }
         );

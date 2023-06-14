@@ -46,5 +46,14 @@ body {
     width: 100%;
     margin-top: 5%;
 }
+.success-snackbar {
+    background-color: #43a047; /* Green color */
+    color: white;
+}
 
+/* Styles for error snackbar */
+.error-snackbar {
+    background-color: #d32f2f; /* Red color */
+    color: white;
+}
 

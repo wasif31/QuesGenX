@@ -5,6 +5,7 @@ import { ExamService } from "../../services/exam.service";
 import { ExamSettingsService } from "../../services/exam-settings.service";
 import { ExamSettings } from "../../interfaces/ExamSettings";
 import { Router } from "@angular/router";
+import {SnackbarService} from "../../../shared/services/snackbar.service";
 
 declare var $: any;
 
@@ -26,7 +27,8 @@ export class SpeakingExamComponent implements OnDestroy {
     private sanitizer: DomSanitizer,
     private examService: ExamService,
     private examSettingsService: ExamSettingsService,
-    private router: Router
+    private router: Router,
+    private snackbarService: SnackbarService
   ) {
     this.audioRecordingService
       .recordingFailed()
@@ -100,6 +102,9 @@ export class SpeakingExamComponent implements OnDestroy {
           this.router.navigate(["/result"], {
             queryParams: { evaluation: this.response },
           });
+        }
+        else{
+          this.snackbarService.showError('An error occurred!');
         }
       });
   }

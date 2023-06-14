@@ -4,6 +4,7 @@ import { Question } from "../../interfaces/Question";
 import { Router } from "@angular/router";
 import { ExamSettingsService } from "../../services/exam-settings.service";
 import { ExamSettings } from "../../interfaces/ExamSettings";
+import {ResultService} from "../../services/result.service";
 
 @Component({
   selector: "app-exam",
@@ -21,13 +22,13 @@ export class ExamComponent implements OnInit {
   constructor(
     private examService: ExamService,
     private router: Router,
-    private examSettingsService: ExamSettingsService
+    private examSettingsService: ExamSettingsService,
+    private resultService: ResultService,
   ) {
-    //todo ashik bhai get the necessary data with question or other items
   }
 
   submitExam() {
-    this.score = this.examService.calculateScore(
+    this.score = this.resultService.calculateScore(
       this.questions,
       this.selectedAnswers
     );

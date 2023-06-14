@@ -1,9 +1,10 @@
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import {catchError, Observable, of} from "rxjs";
 import { Question } from "../interfaces/Question";
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { AppConfigService } from "../../services/app-config.service";
 import { Result } from "../interfaces/Result";
+import {SnackbarService} from "../../shared/services/snackbar.service";
 
 @Injectable({
   providedIn: "root",
@@ -51,7 +52,7 @@ export class ExamService {
     },
   ];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private snackbarService: SnackbarService) {
     console.log(this.apiServer.apiUrl);
   }
 
@@ -80,8 +81,14 @@ export class ExamService {
       "http://127.0.0.1:8000/api/exam/generateQuestion/",
       formData,
       { params: queryParams }
+    ).pipe(
+        catchError((error) => {
+          console.error('An error occurred:', error);
+          this.snackbarService.showError('An error occurred! '+error.message);
+          // Handle the error as needed, e.g., show an error message
+          return of([]); // Return an empty array or appropriate default value
+        })
     );
-    // Dummy data - replace with your actual data retrieval logic
 
     //return of(questions);
   }
@@ -104,8 +111,14 @@ export class ExamService {
     return this.http.post<any>(
       "http://127.0.0.1:8000/api/exam/generateQuestion/",
       { params: queryParams, body: selectedText }
+    ).pipe(
+        catchError((error) => {
+          console.error('An error occurred:', error);
+          this.snackbarService.showError('An error occurred! '+error.message);
+          // Handle the error as needed, e.g., show an error message
+          return of([]); // Return an empty array or appropriate default value
+        })
     );
-    // Dummy data - replace with your actual data retrieval logic
 
     //return of(questions);
   }
@@ -131,26 +144,14 @@ export class ExamService {
       "http://127.0.0.1:8000/api/exam/evaluateSpeech/",
       formData,
       { params: queryParams }
+    ).pipe(
+        catchError((error) => {
+          console.error('An error occurred:', error);
+          this.snackbarService.showError('An error occurred! '+error.message);
+          // Handle the error as needed, e.g., show an error message
+          return of([]); // Return an empty array or appropriate default value
+        })
     );
-    // Dummy data - replace with your actual data retrieval logic
-
-    //return of(questions);
   }
 
-  calculateScore(
-    questions: Question[],
-    selectedAnswers: { [key: number]: string }
-  ): number {
-    let score = 0;
-
-    questions.forEach((question) => {
-      const userResponse = selectedAnswers[question.id];
-
-      if (userResponse === question.answer) {
-        score++;
-      }
-    });
-
-    return score;
-  }
 }

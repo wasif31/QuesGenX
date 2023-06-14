@@ -54,7 +54,7 @@
                         </mat-form-field>
                     </div>
                 </div>
-                <button (click)="startExam()" class="submit-button" color="primary" mat-raised-button>Start Exam
+                <button [disabled]="!selectedExamType"(click)="startExam()" class="submit-button" color="primary" mat-raised-button>Start Exam
                 </button>
             </div>
         </div>
