@@ -42,18 +42,33 @@ export class ExamComponent implements OnInit {
   ngOnInit(): void {
     this.settings = this.examSettingsService.getSettings();
     this.fileData = this.examSettingsService.getFileData();
+    this.fileData = this.examSettingsService.getFileData();
     if (this.settings.selectedExamType == "Writing") {
-      this.examService
-        .fetchQuestions2(
-          this.settings.selectedExamType,
-          this.settings.selectedDifficulty,
-          this.settings.selectedQuestionType,
-          this.fileData
-        )
-        .subscribe((questions) => {
-          this.questions = questions;
-          console.log(questions);
-        });
+      if (this.settings.selectedInputType == "Text") {
+        this.examService
+          .fetchQuestionByText(
+            this.settings.selectedExamType,
+            this.settings.selectedDifficulty,
+            this.settings.selectedQuestionType,
+            this.fileData
+          )
+          .subscribe((questions) => {
+            this.questions = questions;
+            console.log(questions);
+          });
+      } else if (this.settings.selectedInputType == "PDF") {
+        this.examService
+          .fetchQuestions2(
+            this.settings.selectedExamType,
+            this.settings.selectedDifficulty,
+            this.settings.selectedQuestionType,
+            this.fileData
+          )
+          .subscribe((questions) => {
+            this.questions = questions;
+            console.log(questions);
+          });
+      }
     }
   }
 }

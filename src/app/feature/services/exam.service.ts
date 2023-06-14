@@ -86,6 +86,33 @@ export class ExamService {
     //return of(questions);
   }
 
+  fetchQuestionByText(
+    examType: string,
+    difficulty: string,
+    questionType: string,
+    selectedFile: File
+  ): Observable<Question[]> {
+    //var questions = this.http.post<any>("http://127.0.0.1:8000/summarize/?no_of_quest=3", selectedFile)
+
+    const formData = new FormData();
+    formData.append("file", selectedFile);
+
+    const headers = new HttpHeaders();
+    headers.append("Content-Type", "multipart/form-data");
+
+    const queryParams = new HttpParams().set("no_of_quest", 3);
+    //return this.http.get<any>("http://127.0.0.1:8000/")
+
+    return this.http.post<any>(
+      "http://127.0.0.1:8000/api/exam/generateQuestion/",
+      formData,
+      { params: queryParams }
+    );
+    // Dummy data - replace with your actual data retrieval logic
+
+    //return of(questions);
+  }
+
   getSpeakingResponse(
     examType: string,
     difficulty: string,
