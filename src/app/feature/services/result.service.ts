@@ -28,7 +28,7 @@ export class ResultService {
     return score;
   }
   fetchResults(
-      userId: string,
+      userId: number,
   ): Observable<Result[]> {
 
     const headers = new HttpHeaders();

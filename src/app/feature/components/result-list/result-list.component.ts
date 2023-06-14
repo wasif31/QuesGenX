@@ -4,6 +4,7 @@ import { ExamService } from "../../services/exam.service";
 import { Result } from "../../interfaces/Result";
 import {PdfMakeWrapper, Txt} from "pdfmake-wrapper";
 import * as pdfFonts from "pdfmake/build/vfs_fonts";
+import {ResultService} from "../../services/result.service";
 
 @Component({
   selector: "app-result-list",
@@ -13,13 +14,17 @@ import * as pdfFonts from "pdfmake/build/vfs_fonts";
 export class ResultListComponent implements OnInit {
   displayedColumns: string[] = ["id", "score", "percentage", "download"];
   dataSource: MatTableDataSource<Result>;
-
-  constructor(private examService: ExamService) {}
+  results: Result[];
+  constructor(private resultService: ResultService) {}
 
   ngOnInit() {
     // Fetch the list of results from the service
-    const results: Result[] = this.examService.getResults();
-    this.dataSource = new MatTableDataSource<Result>(results);
+    const userId = 1;
+    this.resultService.fetchResults(userId).subscribe((result) => {
+      this.results  = result;
+      console.log(result);
+    });;
+    this.dataSource = new MatTableDataSource<Result>(this.results);
   }
 
   downloadResult(result: Result) {
