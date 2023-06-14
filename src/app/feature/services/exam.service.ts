@@ -90,12 +90,10 @@ export class ExamService {
     examType: string,
     difficulty: string,
     questionType: string,
-    selectedFile: File
+    selectedText: string
   ): Observable<Question[]> {
     //var questions = this.http.post<any>("http://127.0.0.1:8000/summarize/?no_of_quest=3", selectedFile)
 
-    const formData = new FormData();
-    formData.append("file", selectedFile);
 
     const headers = new HttpHeaders();
     headers.append("Content-Type", "multipart/form-data");
@@ -105,8 +103,7 @@ export class ExamService {
 
     return this.http.post<any>(
       "http://127.0.0.1:8000/api/exam/generateQuestion/",
-      formData,
-      { params: queryParams }
+      { params: queryParams, body: selectedText }
     );
     // Dummy data - replace with your actual data retrieval logic
 

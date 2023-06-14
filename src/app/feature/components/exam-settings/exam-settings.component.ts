@@ -64,6 +64,9 @@ export class ExamSettingsComponent implements OnInit {
 
     //this.settingsSaved.emit(settings);
     this.examSettingsService.setSettings(settings);
+    if(this.enteredText){
+      this.examSettingsService.setFileData(this.enteredText);
+    }
   }
 
   ngOnInit(): void {
