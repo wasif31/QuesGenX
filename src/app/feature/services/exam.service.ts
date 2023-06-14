@@ -77,7 +77,7 @@ export class ExamService {
     const headers = new HttpHeaders();
     headers.append("Content-Type", "multipart/form-data");
 
-    const queryParams = new HttpParams().set("no_of_quest", 3);
+    const queryParams = new HttpParams().set("no_of_quest", 5);
     //return this.http.get<any>("http://127.0.0.1:8000/")
 
     return this.http
