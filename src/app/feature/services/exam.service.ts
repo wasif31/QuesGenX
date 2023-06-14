@@ -105,7 +105,7 @@ export class ExamService {
     const headers = new HttpHeaders();
     headers.append("Content-Type", "multipart/form-data");
 
-    const queryParams = new HttpParams().set("no_of_quest", 3);
+    const queryParams = new HttpParams().set("no_of_quest", 5);
     //return this.http.get<any>("http://127.0.0.1:8000/")
 
     return this.http.post<any>(
@@ -127,6 +127,7 @@ export class ExamService {
     examType: string,
     difficulty: string,
     questionType: string,
+    selectedLanguage: string,
     selectedFile: File
   ): Observable<string> {
     //var questions = this.http.post<any>("http://127.0.0.1:8000/summarize/?no_of_quest=3", selectedFile)
@@ -137,7 +138,13 @@ export class ExamService {
     const headers = new HttpHeaders();
     headers.append("Content-Type", "multipart/form-data");
 
-    const queryParams = new HttpParams().set("no_of_quest", 3);
+    const queryParams = new HttpParams()
+        .set("no_of_quest", 5)
+        .set("examType", examType)
+        .set("difficulty", difficulty)
+        .set("questionType", questionType)
+        .set("selectedLanguage", selectedLanguage)
+    ;
     //return this.http.get<any>("http://127.0.0.1:8000/")
 
     return this.http.post<any>(

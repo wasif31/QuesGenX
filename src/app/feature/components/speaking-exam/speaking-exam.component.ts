@@ -93,6 +93,7 @@ export class SpeakingExamComponent implements OnDestroy {
         this.settings.selectedExamType,
         this.settings.selectedDifficulty,
         this.settings.selectedQuestionType,
+        this.settings.selectedLanguage,
         file
       )
       .subscribe((response) => {
