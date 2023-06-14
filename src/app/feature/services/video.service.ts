@@ -52,7 +52,7 @@ export class VideoService {
     link.download = 'first_video.mp4';
     link.click();
   }
-  makeApiRequest(): void {
+  generateVideoRequest(): void {
     const apiUrl = 'https://api.heygen.com/v1/video.generate';
     const apiKey = this.getApiKey();
 

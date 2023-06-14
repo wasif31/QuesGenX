@@ -22,7 +22,7 @@ export class LiseningExamComponent implements OnInit {
 
     //console.log("response",response)
     //generate and uplaod video buy uncommenting the bellow code
-    //this.videoService.makeApiRequest();
+    //this.videoService.generateVideoRequest();
   }
 
 

@@ -7,6 +7,7 @@ import { ExamSettingsComponent } from "./components/exam-settings/exam-settings.
 import { AboutUsComponent } from "./components/about-us/about-us.component";
 import { ContactUsComponent } from "./components/contact-us/contact-us.component";
 import { ResultListComponent } from "./components/result-list/result-list.component";
+import {AdminComponent} from "./components/admin/admin.component";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: "results", component: ResultListComponent },
   { path: "about-us", component: AboutUsComponent },
   { path: "contact-us", component: ContactUsComponent },
+  { path: "admin", component: AdminComponent },
 ];
 
 @NgModule({

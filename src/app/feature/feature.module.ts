@@ -14,6 +14,7 @@ import { AboutUsComponent } from "./components/about-us/about-us.component";
 import { ContactUsComponent } from "./components/contact-us/contact-us.component";
 import { ResultListComponent } from "./components/result-list/result-list.component";
 import { LiseningExamComponent } from './components/lisening-exam/lisening-exam.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
   imports: [CommonModule, FeatureRoutingModule, SharedModule,],
@@ -30,6 +31,7 @@ import { LiseningExamComponent } from './components/lisening-exam/lisening-exam.
     ResultListComponent,
     ContactUsComponent,
     LiseningExamComponent,
+    AdminComponent,
   ],
   exports: [HomeComponent],
 })
