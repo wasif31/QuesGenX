@@ -46,15 +46,15 @@
                         <mat-label class="mr-10">Upload PDF</mat-label>
                         <input (change)="onFileSelected($event)" accept="application/pdf" type="file"/>
                     </div>
-                    <div *ngIf="selectedExamType == 'Writing' && selectedInputType=='Text'"
-                         fxLayout="row">
+                    <div *ngIf="selectedExamType == 'Writing' && selectedInputType=='Text'">
                         <mat-form-field appearance="fill">
                             <mat-label class="mr-10">Insert Text</mat-label>
-                            <input  matInput placeholder="Enter text" [(ngModel)]="enteredText">
+                            <input [(ngModel)]="enteredText" matInput placeholder="Enter text">
                         </mat-form-field>
                     </div>
                 </div>
-                <button [disabled]="!selectedExamType"(click)="startExam()" class="submit-button" color="primary" mat-raised-button>Start Exam
+                <button (click)="startExam()" [disabled]="!selectedExamType" class="submit-button" color="primary"
+                        mat-raised-button>Start Exam
                 </button>
             </div>
         </div>
