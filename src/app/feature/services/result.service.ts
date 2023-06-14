@@ -37,7 +37,7 @@ export class ResultService {
     const queryParams = new HttpParams().set("userId", userId);
     //return this.http.get<any>("http://127.0.0.1:8000/")
 
-    return this.http.post<any>(
+    return this.http.get<any>(
         "http://127.0.0.1:8000/api/exam/getResults/",
         { params: queryParams }
     ).pipe(

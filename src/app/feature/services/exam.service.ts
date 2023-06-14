@@ -78,7 +78,7 @@ export class ExamService {
     //return this.http.get<any>("http://127.0.0.1:8000/")
 
     return this.http.post<any>(
-      "http://127.0.0.1:8000/api/exam/generateQuestion/",
+      "http://127.0.0.1:8000/api/exam/generateQuestionFromPDF/",
       formData,
       { params: queryParams }
     ).pipe(
@@ -109,7 +109,7 @@ export class ExamService {
     //return this.http.get<any>("http://127.0.0.1:8000/")
 
     return this.http.post<any>(
-      "http://127.0.0.1:8000/api/exam/generateQuestion/",
+      "http://127.0.0.1:8000/api/exam/generateQuestionFromText/",
       { params: queryParams, body: selectedText }
     ).pipe(
         catchError((error) => {
