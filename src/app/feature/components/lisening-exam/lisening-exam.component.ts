@@ -72,7 +72,8 @@ export class LiseningExamComponent implements OnInit {
                 this.settings.selectedDifficulty,
                 "MCQ",
                 this.settings.selectedLanguage,
-                this.fileData
+                this.fileData,
+                this.settings.selectedQuestionNumber
             )
             .subscribe((questions) => {
               this.questions = questions;
