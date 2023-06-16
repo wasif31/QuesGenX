@@ -52,7 +52,8 @@ export class VideoService {
     link.download = 'first_video.mp4';
     link.click();
   }
-  generateVideoRequest(): void {
+
+    generateVideoRequest(enteredText: string): void {
     const apiUrl = 'https://api.heygen.com/v1/video.generate';
     const apiKey = this.getApiKey();
 
@@ -67,7 +68,7 @@ export class VideoService {
         {
           avatar_id: 'Daisy-inskirt-20220818',
           avatar_style: 'normal',
-          input_text: this.getText(),
+          input_text: enteredText??this.getText(),
           offset: {
             x: 0,
             y: 0

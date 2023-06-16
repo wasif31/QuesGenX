@@ -5,7 +5,7 @@
             <div class="submit-button" fxLayout="column">
                 <mat-form-field appearance="fill">
                     <mat-label>Insert Your Text</mat-label>
-                    <input matInput placeholder="Enter your text" required>
+                    <input matInput placeholder="Enter your text" required [(ngModel)]="enteredText">
                 </mat-form-field>
             </div>
             <button (click)="generateVideo()" class="submit-button" color="primary" mat-raised-button>Generate Video
