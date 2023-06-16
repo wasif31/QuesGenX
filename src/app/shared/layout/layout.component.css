@@ -8,6 +8,11 @@
     right: 0;
 }
 
+.mat-toolbar.mat-primary {
+    background: #e4e5e8;
+    color: #6c6666;
+}
+
 .example-is-mobile .example-toolbar {
     position: fixed;
     z-index: 2;

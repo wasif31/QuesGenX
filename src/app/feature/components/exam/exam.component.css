@@ -1,5 +1,13 @@
 .question-card {
     margin-bottom: 5px;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+    border-radius: 8px;
+}
+
+.cart {
+    width: 99%;
+    padding: 5px;
+    margin-left: 3px;
 }
 
 .question-text {
