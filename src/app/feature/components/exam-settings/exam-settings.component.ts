@@ -28,7 +28,7 @@ export class ExamSettingsComponent implements OnInit {
   selectedFile: File | null;
   questions: Question[] = [];
   @Output() settingsSaved: EventEmitter<any> = new EventEmitter<any>();
-  private selectedQuestionNumber: number;
+  selectedQuestionNumber: number;
   private selectedLang: string;
   enteredText: string;
 

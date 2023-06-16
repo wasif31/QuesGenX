@@ -24,6 +24,10 @@
                                             [value]="level">{{ level }}</mat-option>
                             </mat-select>
                         </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Select No of Question</mat-label>
+                            <input type="number" matInput placeholder="Enter  No of Question" [(ngModel)]="selectedQuestionNumber" required>
+                        </mat-form-field>
                     </div>
 
                     <div *ngIf="selectedExamType == 'Writing'" fxLayout="column">
