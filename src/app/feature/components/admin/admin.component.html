@@ -1,8 +1,15 @@
-<mat-card class="card-wrapper">
+<mat-card class="card-wrapper ">
     <mat-card-title class="margin-title">Admin</mat-card-title>
     <mat-card-content>
         <div fxLayout="column">
-            <button (click)="generateVideo()" class="submit-button" color="primary" mat-raised-button>Generate Video</button>
+            <div class="submit-button" fxLayout="column">
+                <mat-form-field appearance="fill">
+                    <mat-label>Insert Your Text</mat-label>
+                    <input matInput placeholder="Enter your text" required>
+                </mat-form-field>
+            </div>
+            <button (click)="generateVideo()" class="submit-button" color="primary" mat-raised-button>Generate Video
+            </button>
         </div>
 
     </mat-card-content>

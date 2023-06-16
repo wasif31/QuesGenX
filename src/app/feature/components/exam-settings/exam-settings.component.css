@@ -1,6 +1,6 @@
 .card-wrapper {
     width: 90%;
-    height: 88%;
+    min-height: 88%;
     margin-top: 5%;
     margin-left: 5%;
     display: flex;
@@ -17,8 +17,8 @@
 }
 
 .form-button .mat-mdc-form-field {
-    margin-right: 10px;
     height: 80px;
+    display: flex;
 }
 
 .mr-10 {
