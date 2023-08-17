@@ -23,7 +23,7 @@ export class ResultListComponent implements OnInit {
     this.resultService.fetchResults(userId).subscribe((result) => {
       this.results  = result;
       console.log(result);
-    });;
+    });
     this.dataSource = new MatTableDataSource<Result>(this.examService.getResults());
   }
 

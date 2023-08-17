@@ -17,10 +17,12 @@ export class ResultService {
   ): number {
     let score = 0;
 
-    questions.forEach((question) => {
+    questions.forEach((question:Question) => {
       const userResponse = selectedAnswers[question.id];
-
+      question.selectedAnswer = userResponse;
+      question.selectedOption = question.id;
       if (userResponse === question.answer) {
+        question.isCorrect = true
         score++;
       }
     });

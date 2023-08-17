@@ -24,10 +24,37 @@
     </mat-card-subtitle>
     <mat-card-content>
         <div fxLayout="column">
-            <div class="form-button">
+            <div class="form-button" style="flex-direction: row;align-self: center">
+                <button mat-raised-button color="primary" (click)="showResult()">
+                    Show Result
+                </button>
+                <button mat-raised-button color="primary" (click)="downloadResult()">
+                    Download Result
+                </button>
+
             </div>
         </div>
-
     </mat-card-content>
 
 </mat-card>
+
+<div *ngFor="let question of questions" [ngClass]="{ 'incorrect-answer': !question.isCorrect }">
+    <div class="question">{{ question.question }}</div>
+    <div class="options">
+        <div
+                *ngFor="let option of question.options; let i = index"
+                [ngClass]="{
+        'selected-option': i === question.selectedOption,
+        'correct-option': i === question.answer && question.isCorrect,
+        'incorrect-option': i === question.selectedAnswer && !question.isCorrect
+      }"
+        >
+            {{ option }}
+        </div>
+    </div>
+</div>
+
+
+
+
+
