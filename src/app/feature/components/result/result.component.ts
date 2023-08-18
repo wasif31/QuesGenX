@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import {ActivatedRoute, Router} from "@angular/router";
 import {DomSanitizer, SafeHtml} from "@angular/platform-browser";
 import {Question} from "../../interfaces/Question";
-import {Result} from "../../interfaces/Result";
 import {PdfMakeWrapper, Txt} from "pdfmake-wrapper";
 import * as pdfFonts from "pdfmake/build/vfs_fonts";
 @Component({
@@ -22,7 +21,7 @@ export class ResultComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private router: Router,
   ) {
-    this.questions = this.router.getCurrentNavigation()?.extras?.state?.['formData'];
+    this.questions = this.router.getCurrentNavigation()?.extras?.state?.['questions'];
   }
 
   ngOnInit() {
@@ -35,9 +34,6 @@ export class ResultComponent implements OnInit {
     if (this.evaluation){
       this.sanitizedHtml = this.sanitizer.bypassSecurityTrustHtml(this.evaluation);
     }
-  }
-  showResult() {
-    // Implement your logic to mark incorrect answers and calculate score and percentage
   }
   downloadResult() {
     // Generate PDF from the result data
@@ -64,4 +60,6 @@ export class ResultComponent implements OnInit {
 
     pdf.create().download(`Result_${new Date()}`);
   }
+
+  protected readonly String = String;
 }

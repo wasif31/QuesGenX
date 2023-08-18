@@ -1,6 +1,6 @@
 .card-wrapper {
     width: 90%;
-    height: 88%;
+    min-height: 88%;
     margin-top: 5%;
     margin-left: 5%;
     display: flex;
@@ -29,7 +29,42 @@
 .incorrect-answer {
     color: red;
 }
+.result-indicator {
+    font-weight: bold;
+}
+.selected-option {
+    background-color: #f3f3f3;
+}
 
+.correct-option {
+    background-color: #e6f4e6;
+}
+
+.incorrect-option {
+    background-color: #ffe6e6;
+    color: red;
+}
+.result-indicator {
+    font-weight: bold;
+}
+
+.correct-indicator {
+    color: green;
+}
+
+.incorrect-indicator {
+    color: red;
+}
+
+.correct-answer {
+    color: blue;
+}
+.question{
+    margin-bottom: 2px;
+}
+.options{
+    margin-bottom: 10px;
+}
 
 
 

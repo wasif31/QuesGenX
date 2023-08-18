@@ -22,8 +22,11 @@ export class ResultService {
       question.selectedAnswer = userResponse;
       question.selectedOption = question.id;
       if (userResponse === question.answer) {
-        question.isCorrect = true
+        question.isCorrect = true;
         score++;
+      }
+      else {
+        question.isCorrect = false;
       }
     });
 

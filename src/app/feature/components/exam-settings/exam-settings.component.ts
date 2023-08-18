@@ -19,7 +19,7 @@ import { ExamSettings } from "../../interfaces/ExamSettings";
 export class ExamSettingsComponent implements OnInit {
   examTypes: ExamType[] = ["Writing", "Listening", "Speaking"]; //todo "Reading"
   difficultyLevels: DifficultyType[] = ["Easy", "Medium", "Hard"];
-  questionTypes: QuestionType[] = ["MCQ", "Fill in the Blanks"];
+  questionTypes: QuestionType[] = ["MCQ","MCQ Based on Category", "Fill in the Blanks"];
   inputTypes: ContentType[] = ["PDF", "Text"];
   selectedExamType: ExamType;
   selectedDifficulty: DifficultyType;
