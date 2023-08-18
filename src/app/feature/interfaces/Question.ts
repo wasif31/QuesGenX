@@ -3,4 +3,7 @@ export interface Question {
   question: string;
   options: string[];
   answer: string;
+  selectedAnswer?:string
+  selectedOption?:number;
+  isCorrect?:boolean;
 }

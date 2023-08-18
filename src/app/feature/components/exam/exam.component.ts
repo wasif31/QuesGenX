@@ -38,6 +38,7 @@ export class ExamComponent implements OnInit {
     // Navigate to the result page with the score and percentage as query parameters
     this.router.navigate(["/result"], {
       queryParams: { score: this.score, percentage: this.percentage },
+      state:{questions: this.questions}
     });
   }
 
