@@ -22,37 +22,36 @@
     <mat-card-subtitle class="margin-title">
         Percentage: {{percentage}} %
     </mat-card-subtitle>
-    <mat-card-content>
-        <div fxLayout="column">
-            <div class="form-button" style="flex-direction: row;align-self: center">
-                <button mat-raised-button color="primary" (click)="showResult()">
-                    Show Result
-                </button>
-                <button mat-raised-button color="primary" (click)="downloadResult()">
-                    Download Result
-                </button>
 
+    <mat-card-content>
+        <div *ngFor="let question of questions; let qIndex = index" [ngClass]="{ 'incorrect-answer': !question.isCorrect }">
+            <div class="question">{{ qIndex + 1 }}. {{ question.question }}</div>
+            <div class="options">
+                <div
+                        *ngFor="let option of question.options; let i = index"
+                        [ngClass]="{
+            'selected-option': option === question.selectedAnswer,
+            'correct-option': option === question.answer && question.isCorrect,
+            'incorrect-option': option === question.selectedAnswer && !question.isCorrect
+          }"
+                >
+                    {{ String.fromCharCode(97 + i) }}. {{ option }}
+                    <span *ngIf="option === question.answer && question.isCorrect" class="result-indicator correct-indicator"> (Correct)</span>
+                    <span *ngIf="option === question.selectedAnswer && !question.isCorrect" class="result-indicator incorrect-indicator"> (Your Answer)</span>
+                    <span *ngIf="option === question.answer && !question.isCorrect" class="result-indicator correct-answer"> (Correct Answer)</span>
+                </div>
             </div>
         </div>
     </mat-card-content>
-
+    <mat-card-content>
+            <div class="form-button" style="flex-direction: row;align-self: center">
+                <button class="submit-button" color="primary" mat-raised-button (click)="downloadResult()">
+                    Download Result
+                </button>
+            </div>
+    </mat-card-content>
 </mat-card>
 
-<div *ngFor="let question of questions" [ngClass]="{ 'incorrect-answer': !question.isCorrect }">
-    <div class="question">{{ question.question }}</div>
-    <div class="options">
-        <div
-                *ngFor="let option of question.options; let i = index"
-                [ngClass]="{
-        'selected-option': i === question.selectedOption,
-        'correct-option': i === question.answer && question.isCorrect,
-        'incorrect-option': i === question.selectedAnswer && !question.isCorrect
-      }"
-        >
-            {{ option }}
-        </div>
-    </div>
-</div>
 
 
 
