@@ -1,11 +1,9 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import {Question} from "../../interfaces/Question";
-import {ExamSettings} from "../../interfaces/ExamSettings";
 import {ExamService} from "../../services/exam.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ExamSettingsService} from "../../services/exam-settings.service";
-import {ResultService} from "../../services/result.service";
-import {ContentType, DifficultyType, ExamType, QuestionType} from "../../types/types";
+import {CardTopicModel} from "../../interfaces/CardTopicModel";
 
 @Component({
     selector: 'app-topic-card',
@@ -13,34 +11,144 @@ import {ContentType, DifficultyType, ExamType, QuestionType} from "../../types/t
     styleUrls: ['./topic-card.component.css']
 })
 export class TopicCardComponent {
-    cardItems = [
-        { title: 'Football', },
-        { title: 'Cricket', },
-        { title: 'BCS', },
-        { title: 'Dhaka',  },
-        { title: 'BrainStation 23',  },
-        { title: 'NopCommerce',  },
-        { title: 'Game of Thrones',  },
-        { title: 'Thanos',  },
-        { title: 'Asp.Net Core',  },
-        { title: 'Angular',  },
-        { title: 'Python',  },
-        { title: 'Competitive Programming',  },
-        { title: 'Doraemon',  },
-        { title: 'Tom and Jerry',  },
-        { title: 'Time Complexity',  },
-        { title: 'Calculus',  },
-        { title: 'Relationship',  },
-        { title: 'Bangladeshi Rumor',  },
-        { title: 'IQ Test',  },
-        { title: 'Barbie',  },
-        { title: 'BTS Army',  },
-        { title: 'Silly Riddles',  },
-        { title: 'Comedic Science',  },
-        { title: 'Behavioral Question',  },
-        { title: 'Hero Alam',  },
-        { title: 'Porimoni',  },
-        { title: 'Shakib Al Hasan',  },
+    cardItems:CardTopicModel[] = [
+        {
+            title: 'Football',
+            description: 'Are you a Football Lover?',
+            image:'card--1'
+        },
+        {
+            title: 'Cricket',
+            description: '',
+            image:'card--2'
+        },
+        {
+            title: 'BCS',
+            description: '',
+            image:'card--3'
+        },
+        {
+            title: 'Dhaka',
+            description: '',
+            image:''
+        },
+        {
+            title: 'BrainStation 23',
+            description: '',
+            image:''
+        },
+        {
+            title: 'NopCommerce',
+            description: '',
+            image:''
+        },
+        {
+            title: 'Game of Thrones',
+            description: '',
+            image:''
+        },
+        {
+            title: 'Thanos',
+            description: '',
+            image:''
+        },
+        {
+            title: 'Asp.Net Core',
+            description: '',
+            image:''
+        },
+        {
+            title: 'Angular',
+            description: '',
+            image:''
+        },
+        {
+            title: 'Python',
+            description: '',
+            image:''
+
+        },
+        {
+            title: 'Competitive Programming',
+            description: '',
+            image:''
+        },
+        {
+            title: 'Doraemon',
+            description: '',
+            image:''
+        },
+        {
+            title: 'Tom and Jerry',
+            description: '',
+            image:''
+        },
+        {
+            title: 'Time Complexity',
+            description: '',
+            image:''
+        },
+        {
+            title: 'Calculus',
+            description: '',
+            image:''
+        },
+        {
+            title: 'Relationship',
+            description: '',
+            image:''
+        },
+        {
+            title: 'Bangladeshi Rumor',
+            description: '',
+            image:''
+        },
+        {
+            title: 'IQ Test',
+            description: '',
+            image:''
+        },
+        {
+            title: 'Barbie',
+            description: '',
+            image:''
+        },
+        {
+            title: 'BTS Army',
+            description: '',
+            image:''
+        },
+        {
+            title: 'Silly Riddles',
+            description: '',
+            image:''
+        },
+        {
+            title: 'Comedic Science',
+            description: '',
+            image:''
+        },
+        {
+            title: 'Behavioral Question',
+            description: '',
+            image:''
+
+        },
+        {
+            title: 'Hero Alam',
+            description: '',
+            image:''
+        },
+        {
+            title: 'Porimoni',
+            description: '',
+            image:''
+        },
+        {
+            title: 'Shakib Al Hasan',
+            description: '',
+            image:''
+        },
 
     ];
 
