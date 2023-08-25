@@ -56,10 +56,13 @@ export class ExamComponent implements OnInit {
             this.fileData,
               this.settings.selectedQuestionNumber
           )
-          .subscribe((questions) => {
+          .subscribe(
+              {
+         next: (questions) => {
             this.questions = questions;
             console.log(questions);
-          });
+          },}
+      );
       } else if (this.settings.selectedInputType == "PDF") {
         this.examService
           .fetchQuestions2(
