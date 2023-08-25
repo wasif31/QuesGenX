@@ -14,7 +14,7 @@
             </mat-radio-group>
         </mat-card-content>
     </div>
-    <app-timer (timeExpired)="handleTimeExpired()" *ngIf="questions.length>0" [duration]="120"></app-timer>
+    <app-timer fxFlexAlign="end" class="Layout-aside-inner" (timeExpired)="handleTimeExpired()" *ngIf="questions.length>0" [duration]="120"></app-timer>
     <button (click)="submitExam()" [disabled]="isTimeExpired" class="submit-button" color="primary" mat-raised-button>
         Submit
     </button>

@@ -57,3 +57,6 @@ margin-title {
 .radio-div {
     align-self: flex-start;
 }
+.Layout-aside-inner {
+    position: fixed;
+}

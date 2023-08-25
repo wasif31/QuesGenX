@@ -14,10 +14,34 @@ import {ContentType, DifficultyType, ExamType, QuestionType} from "../../types/t
 })
 export class TopicCardComponent {
     cardItems = [
-        { title: 'Football', /* other properties */ },
-        { title: 'Cricket', /* other properties */ },
-        { title: 'BCS', /* other properties */ }
-        // ... more card items
+        { title: 'Football', },
+        { title: 'Cricket', },
+        { title: 'BCS', },
+        { title: 'Dhaka',  },
+        { title: 'BrainStation 23',  },
+        { title: 'NopCommerce',  },
+        { title: 'Game of Thrones',  },
+        { title: 'Thanos',  },
+        { title: 'Asp.Net Core',  },
+        { title: 'Angular',  },
+        { title: 'Python',  },
+        { title: 'Competitive Programming',  },
+        { title: 'Doraemon',  },
+        { title: 'Tom and Jerry',  },
+        { title: 'Time Complexity',  },
+        { title: 'Calculus',  },
+        { title: 'Relationship',  },
+        { title: 'Bangladeshi Rumor',  },
+        { title: 'IQ Test',  },
+        { title: 'Barbie',  },
+        { title: 'BTS Army',  },
+        { title: 'Silly Riddles',  },
+        { title: 'Comedic Science',  },
+        { title: 'Behavioral Question',  },
+        { title: 'Hero Alam',  },
+        { title: 'Porimoni',  },
+        { title: 'Shakib Al Hasan',  },
+
     ];
 
     questions: Question[] = [];
