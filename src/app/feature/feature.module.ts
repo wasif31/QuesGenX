@@ -15,6 +15,8 @@ import { ContactUsComponent } from "./components/contact-us/contact-us.component
 import { ResultListComponent } from "./components/result-list/result-list.component";
 import { LiseningExamComponent } from './components/lisening-exam/lisening-exam.component';
 import { AdminComponent } from './components/admin/admin.component';
+import {TopicCardComponent} from "./components/topic-card/topic-card.component";
+import {TopicBasedExamComponent} from "./components/topic-based-exam/topic-based-exam.components";
 
 @NgModule({
   imports: [CommonModule, FeatureRoutingModule, SharedModule,],
@@ -32,6 +34,8 @@ import { AdminComponent } from './components/admin/admin.component';
     ContactUsComponent,
     LiseningExamComponent,
     AdminComponent,
+    TopicCardComponent,
+    TopicBasedExamComponent
   ],
   exports: [HomeComponent],
 })

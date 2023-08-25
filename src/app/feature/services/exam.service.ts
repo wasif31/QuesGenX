@@ -99,6 +99,32 @@ export class ExamService {
     //return of(questions);
   }
 
+  fetchQuestionsBasedOnType(
+      topic: string
+  ): Observable<Question[]> {
+    const headers = new HttpHeaders();
+    headers.append("Content-Type", "multipart/form-data");
+
+    const queryParams = new HttpParams().set("topic", topic);
+
+    return this.http
+        .post<any>(
+            "http://127.0.0.1:8000/api/exam/generateQuestionFromTopic/",
+            null,
+            { params: queryParams }
+        )
+        .pipe(
+            catchError((error) => {
+              console.error("An error occurred:", error);
+              this.snackbarService.showError("An error occurred! " + error.message);
+              // Handle the error as needed, e.g., show an error message
+              return of([]); // Return an empty array or appropriate default value
+            })
+        );
+
+    //return of(questions);
+  }
+
   fetchQuestionByText(
     examType: string,
     difficulty: string,
