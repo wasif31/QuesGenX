@@ -11,16 +11,21 @@ export class TimerComponent implements OnInit {
   minutes: number;
   seconds: number;
   timer: any;
-
+  audio = new Audio();
   ngOnInit() {
     this.startTimer();
   }
 
   startTimer() {
+    let soundPlayed = false;
     this.minutes = Math.floor(this.duration / 60);
     this.seconds = this.duration % 60;
 
     this.timer = setInterval(() => {
+      if (this.minutes === 0 && this.seconds <= 25 && !soundPlayed) {
+        this.playAudio();
+        soundPlayed = true;
+      }
       if (this.seconds === 0) {
         if (this.minutes === 0) {
           this.stopTimer();
@@ -28,6 +33,7 @@ export class TimerComponent implements OnInit {
         } else {
           this.minutes--;
           this.seconds = 59;
+
         }
       } else {
         this.seconds--;
@@ -37,5 +43,15 @@ export class TimerComponent implements OnInit {
 
   stopTimer() {
     clearInterval(this.timer);
+  }
+  playAudio(){
+
+    this.audio.src = "./assets/Sounds/sound1.mp3";
+    this.audio.load();
+    this.audio.play();
+    console.log("Audio")
+  }
+  stopAudio() {
+    this.audio.pause();
   }
 }
