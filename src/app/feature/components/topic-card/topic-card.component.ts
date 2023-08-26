@@ -13,8 +13,13 @@ import {CardTopicModel} from "../../interfaces/CardTopicModel";
 export class TopicCardComponent {
     cardItems:CardTopicModel[] = [
         {
+            title: 'BrainStation 23',
+            description: '',
+            image:'card-bs'
+        },
+        {
             title: 'Football',
-            description: 'Are you a Football Lover?',
+            description: '',
             image:'card--1'
         },
         {
@@ -25,63 +30,48 @@ export class TopicCardComponent {
         {
             title: 'BCS',
             description: '',
-            image:'card--3'
-        },
-        {
-            title: 'Dhaka',
-            description: '',
-            image:''
-        },
-        {
-            title: 'BrainStation 23',
-            description: '',
-            image:''
-        },
-        {
-            title: 'NopCommerce',
-            description: '',
-            image:''
+            image:'card-bcs'
         },
         {
             title: 'Game of Thrones',
             description: '',
-            image:''
+            image:'card-got'
         },
         {
             title: 'Thanos',
             description: '',
-            image:''
+            image:'card-thanos'
         },
         {
             title: 'Asp.Net Core',
             description: '',
-            image:''
+            image:'card-dotnet'
         },
         {
             title: 'Angular',
             description: '',
-            image:''
+            image:'card-angular'
         },
         {
             title: 'Python',
             description: '',
-            image:''
+            image:'card-python'
 
         },
         {
-            title: 'Competitive Programming',
+            title: 'Programming',
             description: '',
-            image:''
+            image:'card-programming'
         },
         {
             title: 'Doraemon',
             description: '',
-            image:''
+            image:'card-doreamon'
         },
         {
             title: 'Tom and Jerry',
             description: '',
-            image:''
+            image:'card-tom'
         },
         {
             title: 'Time Complexity',
@@ -91,15 +81,10 @@ export class TopicCardComponent {
         {
             title: 'Calculus',
             description: '',
-            image:''
+            image:'card-calculus'
         },
         {
             title: 'Relationship',
-            description: '',
-            image:''
-        },
-        {
-            title: 'Bangladeshi Rumor',
             description: '',
             image:''
         },
@@ -114,25 +99,9 @@ export class TopicCardComponent {
             image:''
         },
         {
-            title: 'BTS Army',
-            description: '',
-            image:''
-        },
-        {
             title: 'Silly Riddles',
             description: '',
             image:''
-        },
-        {
-            title: 'Comedic Science',
-            description: '',
-            image:''
-        },
-        {
-            title: 'Behavioral Question',
-            description: '',
-            image:''
-
         },
         {
             title: 'Hero Alam',
@@ -140,16 +109,15 @@ export class TopicCardComponent {
             image:''
         },
         {
-            title: 'Porimoni',
-            description: '',
-            image:''
-        },
-        {
             title: 'Shakib Al Hasan',
             description: '',
+            image:'card-sakib'
+        },
+        {
+            title: 'NopCommerce',
+            description: '',
             image:''
         },
-
     ];
 
     questions: Question[] = [];

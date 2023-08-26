@@ -50,6 +50,58 @@ body {
   background-image: url('https://images.pexels.com/photos/307008/pexels-photo-307008.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
 }
 
+.card-bs .card__img, .card-bs .card__img--hover {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_W7rFf68mtVbJleZIyeGHYeEmpEPDrFjKpA&usqp=CAU?auto=compress&cs=tinysrgb&h=750&w=1260');
+}
+
+.card-bcs .card__img, .card-bcs .card__img--hover {
+  background-image: url('https://d1whtlypfis84e.cloudfront.net/guides/wp-content/uploads/2019/07/30112759/Success-1024x768.jpg?auto=compress&cs=tinysrgb&h=750&w=1260');
+}
+
+.card-got .card__img, .card-got .card__img--hover {
+  background-image: url('https://play-lh.googleusercontent.com/aI0WOXOtVEPE3i0L1zGnAo3sHtTBP7Z7D4t10qA8rc11XqHiPkHoUGBa3DehE1ZQEyjxTg=w600-h300-pc0xffffff-pd?auto=compress&cs=tinysrgb&h=750&w=1260');
+}
+
+.card-thanos .card__img, .card-thanos .card__img--hover {
+  background-image: url('https://helios-i.mashable.com/imagery/articles/01GFZjPqzBpVYEfUSUNiuoa/hero-image.fill.size_1200x1200.v1623384687.jpg?auto=compress&cs=tinysrgb&h=750&w=1260');
+}
+
+.card-dotnet .card__img, .card-dotnet .card__img--hover {
+  background-image: url('https://www.muylinux.com/wp-content/uploads/2017/08/NET.png?auto=compress&cs=tinysrgb&h=750&w=1260');
+}
+
+.card-angular .card__img, .card-angular .card__img--hover {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9XMIJ02Z37Ng4ZIOBcPm5ZAspe8saLhvXMg&usqp=CAU?auto=compress&cs=tinysrgb&h=750&w=1260');
+}
+
+.card-python .card__img, .card-python .card__img--hover {
+  background-image: url('https://devblogs.microsoft.com/python/wp-content/uploads/sites/12/2018/08/pythonfeature.png?auto=compress&cs=tinysrgb&h=750&w=1260');
+}
+
+.card-programming .card__img, .card-programming .card__img--hover {
+  background-image: url('https://www.workbeyondcoding.com/img/2020/09/coding.webp?auto=compress&cs=tinysrgb&h=750&w=1260');
+}
+
+.card-general .card__img, .card-general .card__img--hover {
+  background-image: url('https://img.freepik.com/premium-vector/quiz-comic-pop-art-style_175838-505.jpg?auto=compress&cs=tinysrgb&h=750&w=1260');
+}
+
+.card-tom .card__img, .card-tom .card__img--hover {
+  background-image: url('https://www.telegraph.co.uk/content/dam/films/2020/02/07/TELEMMGLPICT000224006835_trans_NvBQzQNjv4BqVnGZDHLVbaDWtLqzwQh5-XkyztDRjf0dUW_myY0VgWI.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
+}
+
+.card-calculus .card__img, .card-calculus .card__img--hover {
+  background-image: url('https://global-uploads.webflow.com/600f0ea5652fe43f9947466f/60f732cbe23b2c4ec7915af4_what-is-calculus.jpg?auto=compress&cs=tinysrgb&h=750&w=1260');
+}
+
+.card-doreamon .card__img, .card-doreamon .card__img--hover {
+  background-image: url('https://w0.peakpx.com/wallpaper/102/727/HD-wallpaper-doraemon-smile-blue-cartoon-animated.jpg?auto=compress&cs=tinysrgb&h=750&w=1260');
+}
+
+.card-sakib .card__img, .card-sakib .card__img--hover {
+  background-image: url('https://e0.pxfuel.com/wallpapers/561/154/desktop-wallpaper-shakib-al-hasan-thumbnail.jpg?auto=compress&cs=tinysrgb&h=750&w=1260');
+}
+
 .card__like {
   width: 18px;
 }
