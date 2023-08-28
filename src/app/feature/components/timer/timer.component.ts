@@ -1,11 +1,15 @@
-import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from "@angular/core";
+import Audio from "$GLOBAL$";
+import Math from "$GLOBAL$";
+import setInterval from "$GLOBAL$";
+import clearInterval from "$GLOBAL$";
 
 @Component({
   selector: "app-timer",
   templateUrl: "./timer.component.html",
   styleUrls: ["./timer.component.css"],
 })
-export class TimerComponent implements OnInit {
+export class TimerComponent implements OnInit ,OnDestroy{
   @Input() duration: number; // Duration in seconds
   @Output() timeExpired: EventEmitter<void> = new EventEmitter<void>();
   minutes: number;
@@ -23,7 +27,7 @@ export class TimerComponent implements OnInit {
 
     this.timer = setInterval(() => {
       if (this.minutes === 0 && this.seconds <= 25 && !soundPlayed) {
-        this.playAudio();
+        //this.playAudio();
         soundPlayed = true;
       }
       if (this.seconds === 0) {
@@ -52,6 +56,10 @@ export class TimerComponent implements OnInit {
     console.log("Audio")
   }
   stopAudio() {
+    this.audio.pause();
+  }
+
+  ngOnDestroy(): void {
     this.audio.pause();
   }
 }
