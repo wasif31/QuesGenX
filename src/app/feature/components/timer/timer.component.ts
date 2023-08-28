@@ -1,8 +1,4 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from "@angular/core";
-import Audio from "$GLOBAL$";
-import Math from "$GLOBAL$";
-import setInterval from "$GLOBAL$";
-import clearInterval from "$GLOBAL$";
 
 @Component({
   selector: "app-timer",
@@ -47,6 +43,7 @@ export class TimerComponent implements OnInit ,OnDestroy{
 
   stopTimer() {
     clearInterval(this.timer);
+    this.stopAudio();
   }
   playAudio(){
 
@@ -60,6 +57,6 @@ export class TimerComponent implements OnInit ,OnDestroy{
   }
 
   ngOnDestroy(): void {
-    this.audio.pause();
+    this.stopTimer();
   }
 }
